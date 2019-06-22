@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+// Modules
+import { SharedModule } from '../shared/shared.module';
+
 // Components
 import { EventListComponent } from './event-list/event-list.component';
 import { EventFormComponent } from './event-form/event-form.component';
@@ -10,10 +13,11 @@ import { EventDetailComponent } from './event-detail/event-detail.component';
   declarations: [
     EventListComponent,
     EventFormComponent,
-    EventDetailComponent
+    EventDetailComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    SharedModule,
   ]
 })
 export class EventsModule { }

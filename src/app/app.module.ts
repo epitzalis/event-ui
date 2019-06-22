@@ -1,11 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatButtonModule } from '@angular/material/button';
-import { MatListModule } from '@angular/material/list';
+// Modules
 import { AppRoutingModule } from './app-routing.module';
+import { SharedModule } from './shared/shared.module';
 
 // Modules
 import { LoginModule } from './login/login.module';
@@ -29,10 +27,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
   imports: [
     AppRoutingModule,
     BrowserModule,
-    BrowserAnimationsModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatListModule,
+    SharedModule,
     LoginModule,
     EventsModule,
     ProfileModule,
@@ -40,4 +35,4 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
