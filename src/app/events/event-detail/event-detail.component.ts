@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { EventService } from '../../core/event.service';
 import { Router } from '@angular/router';
 import { Event } from '../../models/event';
+import { UserService } from '../../core/user.service';
 
 @Component({
   selector: 'eui-event-detail',
@@ -21,6 +22,7 @@ export class EventDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private eventService: EventService,
+    private userService: UserService,
   ) {}
 
   ngOnInit() {
@@ -35,8 +37,10 @@ export class EventDetailComponent implements OnInit {
   }
 
   deleteEvent(event: Event) {
-    this.eventService.deleteEvent(event.id).subscribe(() => {
-    });
+    if (this.userService.checkUser()) {
+      this.eventService.deleteEvent(event.id).subscribe(() => {
+      });
+    }
     this.router.navigate(['/events']);
   }
 }

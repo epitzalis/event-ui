@@ -1,7 +1,6 @@
 import { Component, DoCheck } from '@angular/core';
 import { User } from '../models/user';
 import { UserService } from '../core/user.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'eui-toolbar',
@@ -13,7 +12,6 @@ export class ToolbarComponent implements DoCheck {
   isAuthenticated: boolean;
 
   constructor(
-    private router: Router,
     private userService: UserService
   ) { }
 
@@ -27,11 +25,4 @@ export class ToolbarComponent implements DoCheck {
       this.user = JSON.parse(localStorage.getItem('user'));
     }
   }
-
-  logout() {
-    this.userService.logout();
-    this.isAuthenticated = false;
-    this.router.navigate(['/home']);
-  }
-
 }

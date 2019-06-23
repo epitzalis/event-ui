@@ -5,7 +5,7 @@
 
   <div *ngIf="event">
     <div>
-      <div>
+      <div *ngIf="userService.checkUser()">
           <button
             mat-raised-button
             color="warn"
@@ -20,7 +20,7 @@
             Edit Event
         </button>
       </div>
-      <mat-card *ngIf="event">
+      <mat-card>
         <mat-card-header>
           <mat-card-title>
             <h3>{{ event.title | uppercase }}</h3>

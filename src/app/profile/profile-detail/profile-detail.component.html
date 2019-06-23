@@ -1,13 +1,27 @@
 <div class="container">
+  <div>
+      <h1>User Profile</h1>
+  </div>
+
+  <div>
+    <button mat-raised-button color="primary" (click)="logout()">
+      Logout
+    </button>
+
+    <button mat-raised-button color="primary">
+      Edit Profile
+    </button>
+  </div>
+
+  <div>
     <div>
-      <div>
-        <h4>ID: </h4>
-        <span> {{user.id}}</span>
-      </div>
-  
-      <div>
-        <h4>Email: </h4>
-        <span> {{user.email}}</span>
-      </div>
+      <h4>ID: </h4>
+      <span> {{user.id}}</span>
+    </div>
+
+    <div>
+      <h4>Email: </h4>
+      <span> {{user.email}}</span>
     </div>
   </div>
+</div>
