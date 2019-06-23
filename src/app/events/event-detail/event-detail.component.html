@@ -5,7 +5,7 @@
 
   <div *ngIf="event">
     <div>
-      <div *ngIf="userService.checkUser()">
+      <div *ngIf="isOwner(event)">
           <button
             mat-raised-button
             color="warn"

@@ -4,6 +4,7 @@ import { EventService } from '../../core/event.service';
 import { Router } from '@angular/router';
 import { Event } from '../../models/event';
 import { UserService } from '../../core/user.service';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'eui-event-detail',
@@ -34,6 +35,15 @@ export class EventDetailComponent implements OnInit {
     this.eventService.getEvent(this.id).subscribe((event: Event) => {
       this.event = event;
     });
+  }
+
+  isOwner(event: Event) {
+    const user: User = JSON.parse(localStorage.getItem('user'));
+    let isOwner = false;
+    if (user) {
+      isOwner = event.addedBy === user.email;
+    }
+    return isOwner;
   }
 
   deleteEvent(event: Event) {
