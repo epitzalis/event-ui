@@ -3,6 +3,10 @@
     <h1>Events</h1>
   </div>
 
+  <button mat-raised-button color="primary" [routerLink]="['/eventForm/', '']">
+    Add Event
+  </button>
+
   <div>
     <div *ngFor="let event of events">
       <div>

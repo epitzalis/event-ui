@@ -10,6 +10,13 @@
             (click)="deleteEvent(event)">
             Delete Event
           </button>
+
+          <button
+            mat-raised-button
+            color="primary"
+            [routerLink]="['/eventForm/', event.id]">
+            Edit Event
+         </button>
         </div>
     <mat-card *ngIf="event">
       <mat-card-header>

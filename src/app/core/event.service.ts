@@ -50,6 +50,32 @@ export class EventService {
       );
   }
 
+  addEvent(event: Event): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+
+    return this.http
+      .post(environment.apiURL + 'events/', event, { headers })
+      .pipe(
+        retry(3),
+        catchError(this.handleError)
+      );
+  }
+
+   updateEvent(event: Event): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+
+    return this.http
+      .put(environment.apiURL + 'events/' + event.id, event, { headers })
+      .pipe(
+        retry(3),
+        catchError(this.handleError)
+      );
+  }
+
   // Error handling
 
   private handleError(error: HttpErrorResponse) {
