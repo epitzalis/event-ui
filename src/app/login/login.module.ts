@@ -1,15 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SigninFormComponent } from './signin-form/signin-form.component';
+import { SignupFormComponent } from './signup-form/signup-form.component';
 import { LoginFormComponent } from './login-form/login-form.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
-    SigninFormComponent,
+    SignupFormComponent,
     LoginFormComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    SharedModule,
   ]
 })
 export class LoginModule { }

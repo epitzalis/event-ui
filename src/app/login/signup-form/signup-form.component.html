@@ -1,7 +1,7 @@
 <div class="container">
-    <h2>Login</h2>
+    <h2>Signup</h2>
   
-    <form novalidate [formGroup]="loginForm" #fform="ngForm" (ngSubmit)="onSubmit()">
+    <form novalidate [formGroup]="signupForm" #fform="ngForm" (ngSubmit)="onSubmit()">
       <mat-form-field>
         <input matInput placeholder="Email" type="text" formControlName="email" />
       </mat-form-field>
@@ -9,14 +9,10 @@
         <input matInput placeholder="Password" type="password" formControlName="password" />
       </mat-form-field>
   
-      <div *ngIf="msgs" class="msgs">
-        {{msgs}} <!-- Data binding for messages -->
-      </div>
-  
       <div>
-        <div>Need an account? <a routerLink="/signup">Sign up</a></div>
+        <div>Already have an account? <a routerLink="/login">Sign in</a></div>
         <button mat-raised-button color="primary" type="submit">
-          Login
+          Signin
         </button>
       </div>
     </form>
