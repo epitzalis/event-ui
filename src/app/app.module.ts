@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 // Modules
+import { CoreModule } from './core/core.module';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 
@@ -25,6 +26,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     PageNotFoundComponent,
   ],
   imports: [
+    CoreModule,
     AppRoutingModule,
     BrowserModule,
     SharedModule,
