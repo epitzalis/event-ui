@@ -1,5 +1,16 @@
 <div class="container">
+  <div class="section-title">
+      <h1>Event details</h1>
+  </div>
   <div id="event-card-details">
+      <div>
+          <button
+            mat-raised-button
+            color="warn"
+            (click)="deleteEvent(event)">
+            Delete Event
+          </button>
+        </div>
     <mat-card *ngIf="event">
       <mat-card-header>
         <mat-card-title>

@@ -36,6 +36,20 @@ export class EventService {
       catchError(this.handleError)
     );
   }
+
+  deleteEvent(id: string): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+
+    return this.http
+      .delete(environment.apiURL + 'events/' + id, { headers })
+      .pipe(
+        retry(3),
+        catchError(this.handleError)
+      );
+  }
+
   // Error handling
 
   private handleError(error: HttpErrorResponse) {
