@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { AuthGuard } from './core/auth-guard.service';
+
 // Components
 import { HomePageComponent } from './home-page/home-page.component';
 import { EventListComponent } from './events/event-list/event-list.component';
@@ -16,19 +18,21 @@ const routes: Routes = [
   { path: 'home', component: HomePageComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'events', component: EventListComponent },
-  { path: 'profile', component: ProfileDetailComponent },
+  { path: 'profile', component: ProfileDetailComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginFormComponent },
   { path: 'signup', component: SignupFormComponent },
   { path: 'eventDetails/:id', component: EventDetailComponent },
   {
     path: 'eventForm/:id',
     component: EventFormComponent,
+    canActivate: [AuthGuard],
   },
   { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthGuard],
 })
 export class AppRoutingModule { }

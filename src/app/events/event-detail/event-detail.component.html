@@ -2,7 +2,9 @@
   <div class="section-title">
       <h1>Event details</h1>
   </div>
-  <div id="event-card-details">
+
+  <div *ngIf="event">
+    <div>
       <div>
           <button
             mat-raised-button
@@ -16,21 +18,21 @@
             color="primary"
             [routerLink]="['/eventForm/', event.id]">
             Edit Event
-         </button>
-        </div>
-    <mat-card *ngIf="event">
-      <mat-card-header>
-        <mat-card-title>
-          <h3>{{ event.title | uppercase }}</h3>
-        </mat-card-title>
-        <mat-card-subtitle>
-          <p>{{ event.location }} - {{ event.date | date: "dd/MM/yyyy" }}</p>
-        </mat-card-subtitle>
-      </mat-card-header>
+        </button>
+      </div>
+      <mat-card *ngIf="event">
+        <mat-card-header>
+          <mat-card-title>
+            <h3>{{ event.title | uppercase }}</h3>
+          </mat-card-title>
+          <mat-card-subtitle>
+            <p>{{ event.location }} - {{ event.date | date: "dd/MM/yyyy" }}</p>
+          </mat-card-subtitle>
+        </mat-card-header>
 
-      <mat-card-content>
-        <p>{{ event.description }}</p>
-      </mat-card-content>
-    </mat-card>
-  </div>
+        <mat-card-content>
+          <p>{{ event.description }}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
 </div>
