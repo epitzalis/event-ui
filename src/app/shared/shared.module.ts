@@ -13,6 +13,8 @@ import { MatInputModule } from '@angular/material/input';
 import { RouterModule } from '@angular/router';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
+import 'hammerjs';
+
 @NgModule({
   declarations: [],
   imports: [
