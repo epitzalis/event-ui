@@ -1,4 +1,4 @@
-<div>
+<div class="container">
   <div>
     <h1>Events</h1>
   </div>
@@ -6,7 +6,7 @@
   <div>
     <div *ngFor="let event of events">
       <div>
-        <span>{{ event.title }}</span>
+        <a [routerLink]="['/eventDetails/', event.id]">{{ event.title }}</a>
         <span>{{ event.date }}</span>
         <span>{{ event.location }}</span>
       </div>
