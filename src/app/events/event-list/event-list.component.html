@@ -1,3 +1,15 @@
-<p>
-  event-list works!
-</p>
+<div>
+  <div>
+    <h1>Events</h1>
+  </div>
+
+  <div>
+    <div *ngFor="let event of events">
+      <div>
+        <span>{{ event.title }}</span>
+        <span>{{ event.date }}</span>
+        <span>{{ event.location }}</span>
+      </div>
+    </div>
+  </div>
+</div>
