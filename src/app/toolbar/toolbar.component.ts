@@ -1,28 +1,33 @@
-import { Component, DoCheck } from '@angular/core';
+import { Component, DoCheck, OnDestroy } from '@angular/core';
 import { User } from '../models/user';
 import { UserService } from '../core/user.service';
+import { SubscriptionLike } from 'rxjs';
+import { select, Store } from '@ngrx/store';
 
 @Component({
   selector: 'eui-toolbar',
   templateUrl: './toolbar.component.html',
   styleUrls: ['./toolbar.component.scss']
 })
-export class ToolbarComponent implements DoCheck {
+export class ToolbarComponent implements OnDestroy {
   user: User;
   isAuthenticated: boolean;
-
+  subscriptionLogin: SubscriptionLike;
   constructor(
-    private userService: UserService
-  ) { }
-
-  ngDoCheck() {
-    this.checkUser();
+    private userService: UserService,
+    private store: Store<any>
+  ) {
+    this.subscriptionLogin = store.pipe(select('login')).subscribe(state => {
+      if (state) {
+        this.isAuthenticated = state.logged;
+        if ( this.isAuthenticated) {
+          this.user = JSON.parse(localStorage.getItem('user'));
+        }
+      }
+    });
   }
 
-  checkUser() {
-    this.isAuthenticated = this.userService.checkUser();
-    if (this.isAuthenticated) {
-      this.user = JSON.parse(localStorage.getItem('user'));
-    }
+  ngOnDestroy() {
+    this.subscriptionLogin.unsubscribe();
   }
 }

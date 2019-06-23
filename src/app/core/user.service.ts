@@ -8,12 +8,17 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, retry, map } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { User } from '../models/user';
+import { Store } from '@ngrx/store';
+import * as login from '../store/login/login.actions';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private store: Store<any>
+  ) {}
   isAuthenticated: boolean;
 
   signup(user: User): Observable<any> {
@@ -63,6 +68,7 @@ export class UserService {
 
   private setUser() {
     this.isAuthenticated = localStorage.getItem('user') ? true : false;
+    this.isAuthenticated ? this.store.dispatch(new login.Logged(true)) : this.store.dispatch(new login.Logged(false));
   }
 
   // Error handling
@@ -73,7 +79,7 @@ export class UserService {
       console.error('An error occurred:', error.error.message);
     } else {
       // The backend returned an unsuccessful response code.
-      // The response body may contain clues about what went wrong,
+      // The response body may contain clues as to what went wrong,
       console.error(
         `Backend returned code ${error.status}, ` + `body was: ${error.error}`
       );

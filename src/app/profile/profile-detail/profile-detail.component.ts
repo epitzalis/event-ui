@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../core/user.service';
 import { User } from '../../models/user';
 import { Router } from '@angular/router';
+import { select, Store } from '@ngrx/store';
+import * as login from '../../store/login/login.actions';
 
 @Component({
   selector: 'eui-profile-detail',
@@ -14,6 +16,7 @@ export class ProfileDetailComponent implements OnInit {
   constructor(
     private userService: UserService,
     private router: Router,
+    private store: Store<any>,
   ) {}
 
   ngOnInit() {
@@ -26,6 +29,7 @@ export class ProfileDetailComponent implements OnInit {
 
   logout() {
     this.userService.logout();
+    this.store.dispatch(new login.Logged(false));
     this.router.navigate(['/home']);
   }
 
