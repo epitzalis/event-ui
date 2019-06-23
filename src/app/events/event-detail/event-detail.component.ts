@@ -7,7 +7,11 @@ import { EventService } from '../../core/event.service';
   templateUrl: './event-detail.component.html',
   styleUrls: ['./event-detail.component.scss']
 })
+
 export class EventDetailComponent implements OnInit {
+
+  PARAM_ID = 'id';
+
   event: Event;
   id: string;
 
@@ -17,7 +21,7 @@ export class EventDetailComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.id = this.route.snapshot.params['id'];
+    this.id = this.route.snapshot.params[this.PARAM_ID];
     this.getEvent();
   }
 
