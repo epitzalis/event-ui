@@ -14,6 +14,8 @@ import { ProfileModule } from './profile/profile.module';
 // State Management
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './app.store';
+import { EffectsModule } from '@ngrx/effects';
+import { LayoutEffects } from './store/layout/layout.effects';
 
 // Components
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -37,7 +39,8 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     LoginModule,
     EventsModule,
     ProfileModule,
-    StoreModule.forRoot(reducers)
+    StoreModule.forRoot(reducers),
+    EffectsModule.forRoot([LayoutEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]

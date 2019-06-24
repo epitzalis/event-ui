@@ -3,9 +3,23 @@
     <h1>Events</h1>
   </div>
 
-  <button mat-raised-button color="primary" [routerLink]="['/eventForm/', '']">
-    Add Event
-  </button>
+  <div class="content">
+    <button mat-raised-button color="primary" [routerLink]="['/eventForm/', '']">
+      Add Event
+    </button>
+
+    <div class="filter" *ngIf="isAuthenticated">
+      <div class="filters">
+          Filter:
+          <mat-slide-toggle
+                [checked]="false"
+                [(ngModel)]="slideMyEvents"
+                (change)="myEventsChange()">
+              My events
+          </mat-slide-toggle>
+      </div>
+    </div>
+  </div>
 
   <div>
     <div *ngFor="let event of events">
@@ -13,6 +27,7 @@
         <a [routerLink]="['/eventDetails/', event.id]">{{ event.title }}</a>
         <span>{{ event.date }}</span>
         <span>{{ event.location }}</span>
+        <span>{{ event.addedBy }}</span>
       </div>
     </div>
   </div>
