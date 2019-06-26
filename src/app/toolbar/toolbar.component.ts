@@ -14,8 +14,8 @@ export class ToolbarComponent implements OnDestroy {
   isAuthenticated: boolean;
   subscriptionLogin: SubscriptionLike;
   constructor(
-    private userService: UserService,
-    private store: Store<any>
+    private readonly userService: UserService,
+    private readonly store: Store<any>
   ) {
     this.subscriptionLogin = store.pipe(select('login')).subscribe(state => {
       if (state) {

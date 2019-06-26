@@ -20,8 +20,8 @@ export class EventListComponent implements OnInit, OnDestroy {
   isAuthenticated: boolean;
 
   constructor(
-    private eventService: EventService,
-    private store: Store<any>,
+    private readonly eventService: EventService,
+    private readonly store: Store<any>,
   ) {}
 
   ngOnInit() {

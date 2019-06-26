@@ -9,14 +9,13 @@ export const initialState: State = {
 };
 
 export function reducer(state: State = initialState, action: login.Actions): State {
-  switch (action.type) {
-    case login.LOGGED:
-      return {
-        ...state,
-        logged: action.payload
-      };
 
-    default:
-      return state;
+  if (action.type === login.LOGGED) {
+    return {
+      ...state,
+      logged: action.payload
+    };
+  } else {
+    return state;
   }
 }

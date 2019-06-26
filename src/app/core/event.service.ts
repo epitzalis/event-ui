@@ -8,16 +8,18 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { Event } from '../models/event';
+import { HTTP_HEADER_KEY_CONTENT_TYPE, HTTP_HEADER_VALUE_APPLICATION_JSON } from './constants.service';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class EventService {
-  constructor(private http: HttpClient) {}
+  constructor(private readonly http: HttpClient) {}
 
   getEvents(): Observable<any> {
     const headers = new HttpHeaders({
-      'Content-Type': 'application/json'
+      HTTP_HEADER_KEY_CONTENT_TYPE : HTTP_HEADER_VALUE_APPLICATION_JSON
     });
 
     return this.http.get(environment.apiURL + 'events', { headers }).pipe(
@@ -28,10 +30,10 @@ export class EventService {
 
   getEvent(id: string): Observable<any> {
     const headers = new HttpHeaders({
-      'Content-Type': 'application/json'
+      HTTP_HEADER_KEY_CONTENT_TYPE : HTTP_HEADER_VALUE_APPLICATION_JSON
     });
 
-    return this.http.get(environment.apiURL + 'events/' + id, { headers }).pipe(
+    return this.http.get(`${environment.apiURL}events/${id}`, { headers }).pipe(
       retry(3),
       catchError(this.handleError)
     );
@@ -39,11 +41,11 @@ export class EventService {
 
   deleteEvent(id: string): Observable<any> {
     const headers = new HttpHeaders({
-      'Content-Type': 'application/json'
+      HTTP_HEADER_KEY_CONTENT_TYPE : HTTP_HEADER_VALUE_APPLICATION_JSON
     });
 
     return this.http
-      .delete(environment.apiURL + 'events/' + id, { headers })
+      .delete(`${environment.apiURL}events/${id}`, { headers })
       .pipe(
         retry(3),
         catchError(this.handleError)
@@ -52,7 +54,7 @@ export class EventService {
 
   addEvent(event: Event): Observable<any> {
     const headers = new HttpHeaders({
-      'Content-Type': 'application/json'
+      HTTP_HEADER_KEY_CONTENT_TYPE : HTTP_HEADER_VALUE_APPLICATION_JSON
     });
 
     return this.http
@@ -65,11 +67,11 @@ export class EventService {
 
   updateEvent(event: Event): Observable<any> {
     const headers = new HttpHeaders({
-      'Content-Type': 'application/json'
+      HTTP_HEADER_KEY_CONTENT_TYPE : HTTP_HEADER_VALUE_APPLICATION_JSON
     });
 
     return this.http
-      .put(environment.apiURL + 'events/' + event.id, event, { headers })
+      .put(`${environment.apiURL}events/${event.id}`, event, { headers })
       .pipe(
         retry(3),
         catchError(this.handleError)
@@ -78,10 +80,10 @@ export class EventService {
 
   getFilteredEvents(filter): Observable<any> {
     const headers = new HttpHeaders({
-      'Content-Type': 'application/json'
+      HTTP_HEADER_KEY_CONTENT_TYPE : HTTP_HEADER_VALUE_APPLICATION_JSON
     });
 
-    return this.http.get(environment.apiURL + 'events?' + filter, { headers }).pipe(
+    return this.http.get(`${environment.apiURL}events?${filter}`, { headers }).pipe(
       retry(3),
       catchError(this.handleError)
     );

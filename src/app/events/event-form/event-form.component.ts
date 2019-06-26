@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Event } from '../../models/event';
 import { EventService } from '../../core/event.service';
-import { Router } from '@angular/router';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../../models/user';
 
 @Component({
@@ -19,10 +18,10 @@ export class EventFormComponent implements OnInit {
   event: Event;
 
   constructor(
-    private fb: FormBuilder,
-    private eventService: EventService,
-    private router: Router,
-    private route: ActivatedRoute
+    private readonly fb: FormBuilder,
+    private readonly eventService: EventService,
+    private readonly router: Router,
+    private readonly route: ActivatedRoute
   ) {}
 
   ngOnInit() {

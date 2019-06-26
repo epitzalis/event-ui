@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { EventService } from '../../core/event.service';
-import { Router } from '@angular/router';
 import { Event } from '../../models/event';
 import { UserService } from '../../core/user.service';
-import { User } from 'src/app/models/user';
+import { User } from '../../models/user';
 
 @Component({
   selector: 'eui-event-detail',
@@ -20,10 +19,10 @@ export class EventDetailComponent implements OnInit {
   id: string;
 
   constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private eventService: EventService,
-    private userService: UserService,
+    private readonly route: ActivatedRoute,
+    private readonly router: Router,
+    private readonly eventService: EventService,
+    private readonly userService: UserService,
   ) {}
 
   ngOnInit() {
@@ -38,10 +37,13 @@ export class EventDetailComponent implements OnInit {
   }
 
   isOwner(event: Event) {
-    const user: User = JSON.parse(localStorage.getItem('user'));
     let isOwner = false;
-    if (user) {
-      isOwner = event.addedBy === user.email;
+    const userString = localStorage.getItem('user');
+    if (userString) {
+      const user: User = JSON.parse(userString);
+      if (user) {
+        isOwner = event.addedBy === user.email;
+      }
     }
     return isOwner;
   }

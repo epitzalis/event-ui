@@ -7,7 +7,7 @@ export class AuthGuard implements CanActivate {
 
   constructor(
     public router: Router,
-    private userService: UserService
+    private readonly userService: UserService
   ) {}
 
   canActivate(): boolean {

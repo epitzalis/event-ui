@@ -12,8 +12,8 @@ export class AppComponent {
   title = 'events-ui';
 
   constructor(
-    private userService: UserService,
-    private store: Store<any>
+    private readonly userService: UserService,
+    private readonly store: Store<any>
   ) {
     this.userService.checkUser() ? this.store.dispatch(new login.Logged(true)) : this.store.dispatch(new login.Logged(false));
   }

@@ -9,8 +9,8 @@ import { EventService } from '../../core/event.service';
 export class LayoutEffects {
 
   constructor(
-    private actions$: Actions,
-    private eventService: EventService
+    private readonly actions$: Actions,
+    private readonly eventService: EventService
   ) {}
 
   @Effect()

@@ -16,8 +16,8 @@ import * as login from '../store/login/login.actions';
 })
 export class UserService {
   constructor(
-    private http: HttpClient,
-    private store: Store<any>
+    private readonly http: HttpClient,
+    private readonly store: Store<any>
   ) {}
   isAuthenticated: boolean;
 
@@ -43,7 +43,7 @@ export class UserService {
       'Content-Type': 'application/json'
     });
 
-    return this.http.get(environment.apiURL + 'users?email=' + user.email, { headers }).pipe(
+    return this.http.get(`${environment.apiURL}users?email=${user.email}`, { headers }).pipe(
       retry(3),
       map(us => {
         if (us[0].email) {
@@ -67,7 +67,8 @@ export class UserService {
   }
 
   private setUser() {
-    this.isAuthenticated = localStorage.getItem('user') ? true : false;
+    this.isAuthenticated = true;
+    this.isAuthenticated = Boolean(localStorage.getItem('user'));
     this.isAuthenticated ? this.store.dispatch(new login.Logged(true)) : this.store.dispatch(new login.Logged(false));
   }
 

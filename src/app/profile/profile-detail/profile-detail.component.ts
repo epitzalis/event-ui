@@ -14,9 +14,9 @@ export class ProfileDetailComponent implements OnInit {
   user: User;
 
   constructor(
-    private userService: UserService,
-    private router: Router,
-    private store: Store<any>,
+    private readonly userService: UserService,
+    private readonly router: Router,
+    private readonly store: Store<any>,
   ) {}
 
   ngOnInit() {
