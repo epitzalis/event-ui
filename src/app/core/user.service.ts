@@ -46,11 +46,11 @@ export class UserService {
     return this.http.get(`${environment.apiURL}users?email=${user.email}`, { headers }).pipe(
       retry(3),
       map(us => {
-        if (us[0].email) {
+        if (us[0].email && us[0].password === user.password) {
           localStorage.setItem('user', JSON.stringify(us[0]));
           this.setUser();
-          return us[0].password === user.password ? us[0] : 'Password not valid.';
         }
+        return us[0].password === user.password ? us[0] : 'Password not valid.';
       }),
       catchError(this.handleError)
     );
