@@ -10,6 +10,7 @@ import { SharedModule } from './shared/shared.module';
 import { LoginModule } from './login/login.module';
 import { EventsModule } from './events/events.module';
 import { ProfileModule } from './profile/profile.module';
+import { SignupModule } from './signup/signup.module';
 
 // State Management
 import { StoreModule } from '@ngrx/store';
@@ -37,6 +38,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     BrowserModule,
     SharedModule,
     LoginModule,
+    SignupModule,
     EventsModule,
     ProfileModule,
     StoreModule.forRoot(reducers),
