@@ -4,11 +4,11 @@ import {
   HttpErrorResponse,
   HttpHeaders
 } from '@angular/common/http';
+import { Store } from '@ngrx/store';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry, map } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
-import { User } from '../models/user';
-import { Store } from '@ngrx/store';
+import { User } from '../models/user.model';
 import * as login from '../store/login/login.actions';
 
 @Injectable({
@@ -19,6 +19,7 @@ export class UserService {
     private readonly http: HttpClient,
     private readonly store: Store<any>
   ) {}
+
   isAuthenticated: boolean;
 
   signup(user: User): Observable<any> {

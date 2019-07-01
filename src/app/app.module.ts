@@ -5,8 +5,6 @@ import { NgModule } from '@angular/core';
 import { CoreModule } from './core/core.module';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
-
-// Modules
 import { EventsModule } from './events/events.module';
 
 // State Management

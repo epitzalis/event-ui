@@ -1,5 +1,5 @@
 import * as layout from './layout.actions';
-import { Event } from '../../models/event';
+import { Event } from '../../models/event.model';
 
 export interface State {
   filteredEvents: Event[];

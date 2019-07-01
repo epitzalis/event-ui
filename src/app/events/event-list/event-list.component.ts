@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Event } from '../../models/event';
+import { Event } from '../../models/event.model';
 import { EventService } from '../../core/event.service';
-import { User } from '../../models/user';
+import { User } from '../../models/user.model';
 import { select, Store } from '@ngrx/store';
 import * as layout from '../../store/layout/layout.actions';
 import { SubscriptionLike } from 'rxjs';

@@ -1,5 +1,5 @@
 import { Component, OnDestroy } from '@angular/core';
-import { User } from '../models/user';
+import { User } from '../models/user.model';
 import { SubscriptionLike } from 'rxjs';
 import { select, Store } from '@ngrx/store';
 

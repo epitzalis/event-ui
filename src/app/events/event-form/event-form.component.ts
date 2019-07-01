@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Event } from '../../models/event';
+import { Event } from '../../models/event.model';
 import { EventService } from '../../core/event.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { User } from '../../models/user';
+import { User } from '../../models/user.model';
 
 @Component({
   selector: 'eui-event-form',
@@ -12,10 +12,10 @@ import { User } from '../../models/user';
 })
 export class EventFormComponent implements OnInit {
 
-  PARAM_ID = 'id';
-
   addEditForm: FormGroup;
   event: Event;
+  
+  private PARAM_ID = 'id';
 
   constructor(
     private readonly fb: FormBuilder,

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../core/user.service';
-import { User } from '../../models/user';
+import { User } from '../../models/user.model';
 import { Router } from '@angular/router';
-import { select, Store } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 import * as login from '../../store/login/login.actions';
 
 @Component({
