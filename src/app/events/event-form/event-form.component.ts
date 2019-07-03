@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { Event } from '../../models/event.model';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Event } from '../../models/event';
 import { EventService } from '../../core/event.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../../models/user.model';
@@ -14,8 +14,8 @@ export class EventFormComponent implements OnInit {
 
   addEditForm: FormGroup;
   event: Event;
-  
-  private PARAM_ID = 'id';
+
+  private readonly PARAM_ID = 'id';
 
   constructor(
     private readonly fb: FormBuilder,
@@ -38,25 +38,36 @@ export class EventFormComponent implements OnInit {
   }
 
   createForm() {
-    if (this.event) {
-      this.addEditForm = this.fb.group({
-        title: this.event.title,
-        location: this.event.location,
-        date: this.event.date,
-        description: this.event.description,
-        addedBy: this.event.addedBy,
-        id: this.event.id
-      });
-    } else {
-      this.addEditForm = this.fb.group({
-        title: '',
-        location: '',
-        date: '',
-        description: '',
-        addedBy: '',
-        id: ''
-      });
+    const titleValue = this.event ? this.event.title : '';
+    const locationValue = this.event ? this.event.location : '';
+    const dateValue = this.event ? this.event.date : '';
+    const descriptionValue = this.event ? this.event.description : '';
+    const addedByValue = this.event ? this.event.addedBy : '';
+    const idValue = this.event ? this.event.id : '';
+
+    this.addEditForm = this.fb.group({
+      title: [titleValue, [Validators.required]],
+      location: [locationValue, [Validators.required, Validators.minLength(2),
+                                  Validators.maxLength(25)]],
+      date: [dateValue, [Validators.required]],
+      description: [descriptionValue, [Validators.required, Validators.minLength(10),
+                                        Validators.maxLength(400)]],
+      addedBy: [addedByValue, []],
+      id: [idValue, []],
+    });
+  }
+
+  getError(name: string, field: any): string {
+    if (field.errors) {
+      if (field.errors.required) {
+        return `${name} is required`;
+      } else if (field.errors.minlength) {
+        return `${name} min length is ${field.errors.minlength.requiredLength}`;
+      } else if (field.errors.maxlength) {
+        return `${name} max length is ${field.errors.maxlength.requiredLength}`;
+      }
     }
+    return '';
   }
 
   onSubmit() {

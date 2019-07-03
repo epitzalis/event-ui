@@ -1,9 +1,8 @@
-import { Routes } from '@angular/router';
 import { SignupFormComponent } from './signup-form/signup-form.component';
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 
 const routes: Routes = [

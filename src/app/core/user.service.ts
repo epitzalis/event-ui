@@ -11,9 +11,7 @@ import { environment } from '../../environments/environment';
 import { User } from '../models/user.model';
 import * as login from '../store/login/login.actions';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class UserService {
   constructor(
     private readonly http: HttpClient,

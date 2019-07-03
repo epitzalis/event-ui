@@ -15,8 +15,8 @@ export class EventDetailComponent implements OnInit {
 
   event: Event;
   id: string;
-  
-  private PARAM_ID = 'id';
+
+  private readonly PARAM_ID = 'id';
 
   constructor(
     private readonly route: ActivatedRoute,
