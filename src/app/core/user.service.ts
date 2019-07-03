@@ -11,9 +11,7 @@ import { User } from '../models/user';
 import { Store } from '@ngrx/store';
 import * as login from '../store/login/login.actions';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class UserService {
   constructor(
     private readonly http: HttpClient,

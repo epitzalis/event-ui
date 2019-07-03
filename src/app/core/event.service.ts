@@ -8,12 +8,10 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { Event } from '../models/event';
-import { HTTP_HEADER_KEY_CONTENT_TYPE, HTTP_HEADER_VALUE_APPLICATION_JSON } from './constants.service';
+import { HTTP_HEADER_VALUE_APPLICATION_JSON } from './constants.service';
 
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class EventService {
   constructor(private readonly http: HttpClient) {}
 
