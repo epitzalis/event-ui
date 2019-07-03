@@ -1,5 +1,4 @@
 import { ProfileDetailComponent } from './profile-detail/profile-detail.component';
-import { ProfileFormComponent } from './profile-form/profile-form.component';
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -16,7 +15,6 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     ProfileDetailComponent,
-    ProfileFormComponent
   ],
   imports: [
     CommonModule,

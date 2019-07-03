@@ -1,11 +1,13 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Event } from '../../models/event.model';
-import { EventService } from '../../core/event.service';
-import { User } from '../../models/user.model';
 import { select, Store } from '@ngrx/store';
-import * as layout from '../../store/layout/layout.actions';
 import { SubscriptionLike } from 'rxjs';
-import { UserService } from 'src/app/core/user.service';
+import * as layout from '../../store/layout/layout.actions';
+
+import { Event } from '../../models/event.model';
+import { User } from '../../models/user.model';
+
+import { UserService } from '../../core/user.service';
+import { EventService } from '../../core/event.service';
 
 @Component({
   selector: 'eui-event-list',
