@@ -4,9 +4,11 @@
   </div>
 
   <div class="content">
-    <button mat-raised-button color="primary" [routerLink]="['/eventForm/', '']">
-      Add Event
-    </button>
+    <ng-container *ngIf="userService.checkUser()">
+      <button mat-raised-button color="primary" [routerLink]="['/eventForm/', '']">
+        Add Event
+      </button>
+    </ng-container>
 
     <div class="filter" *ngIf="isAuthenticated">
       <div class="filters">

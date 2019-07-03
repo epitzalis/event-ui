@@ -5,6 +5,7 @@ import { User } from '../../models/user';
 import { select, Store } from '@ngrx/store';
 import * as layout from '../../store/layout/layout.actions';
 import { SubscriptionLike } from 'rxjs';
+import { UserService } from 'src/app/core/user.service';
 
 @Component({
   selector: 'eui-event-list',
@@ -22,6 +23,7 @@ export class EventListComponent implements OnInit, OnDestroy {
   constructor(
     private readonly eventService: EventService,
     private readonly store: Store<any>,
+    public userService: UserService,
   ) {}
 
   ngOnInit() {

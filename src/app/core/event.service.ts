@@ -9,6 +9,7 @@ import { catchError, retry } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { Event } from '../models/event';
 import { HTTP_HEADER_VALUE_APPLICATION_JSON } from './constants.service';
+import { User } from '../models/user';
 
 
 @Injectable()
@@ -85,6 +86,18 @@ export class EventService {
       retry(3),
       catchError(this.handleError)
     );
+  }
+
+  isOwner(event: Event) {
+    let isOwner = false;
+    const userString = localStorage.getItem('user');
+    if (userString) {
+      const user: User = JSON.parse(userString);
+      if (user) {
+        isOwner = event.addedBy === user.email;
+      }
+    }
+    return isOwner;
   }
 
   // Error handling
