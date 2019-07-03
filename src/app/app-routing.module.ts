@@ -12,13 +12,13 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 
 
 const routes: Routes = [
-  { 
+  {
     path: 'home',
-    component: HomePageComponent 
+    component: HomePageComponent,
   },
-  { 
+  {
     path: 'events',
-    component: EventListComponent 
+    component: EventListComponent,
   },
   {
     path: 'profile',
@@ -33,21 +33,21 @@ const routes: Routes = [
     path: 'signup',
     loadChildren: () => import('./signup/signup.module').then(m => m.SignupModule),
   },
-  { 
+  {
     path: 'eventDetails/:id',
-    component: EventDetailComponent 
+    component: EventDetailComponent,
   },
   {
     path: 'eventForm/:id',
     component: EventFormComponent,
     canActivate: [AuthGuard],
   },
-  { 
-    path: '', 
+  {
+    path: '',
     redirectTo: '/home',
-    pathMatch: 'full' 
+    pathMatch: 'full'
   },
-  { 
+  {
     path: '**',
     component: PageNotFoundComponent
   },
