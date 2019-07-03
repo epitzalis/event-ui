@@ -1,4 +1,4 @@
-import { LoginFormComponent } from './login-form/login-form.component';
+import { SignupFormComponent } from './signup-form/signup-form.component';
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -8,13 +8,13 @@ import { SharedModule } from '../shared/shared.module';
 const routes: Routes = [
   {
     path: '',
-    component: LoginFormComponent
+    component: SignupFormComponent
   }
 ];
 
 @NgModule({
   declarations: [
-    LoginFormComponent,
+    SignupFormComponent,
   ],
   imports: [
     CommonModule,
@@ -22,4 +22,4 @@ const routes: Routes = [
     RouterModule.forChild(routes),
   ]
 })
-export class LoginModule { }
+export class SignupModule { }

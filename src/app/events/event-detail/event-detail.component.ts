@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EventService } from '../../core/event.service';
-import { Event } from '../../models/event';
+import { Event } from '../../models/event.model';
 import { UserService } from '../../core/user.service';
-import { User } from '../../models/user';
+import { User } from '../../models/user.model';
 
 @Component({
   selector: 'eui-event-detail',
@@ -13,10 +13,10 @@ import { User } from '../../models/user';
 
 export class EventDetailComponent implements OnInit {
 
-  PARAM_ID = 'id';
-
   event: Event;
   id: string;
+
+  private readonly PARAM_ID = 'id';
 
   constructor(
     private readonly route: ActivatedRoute,

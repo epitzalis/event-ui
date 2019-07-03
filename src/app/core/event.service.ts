@@ -8,9 +8,8 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { Event } from '../models/event';
-import { HTTP_HEADER_VALUE_APPLICATION_JSON } from './constants.service';
-import { User } from '../models/user';
-
+import { HTTP_HEADER_VALUE_APPLICATION_JSON } from './constants-service';
+import { User } from '../models/user.model';
 
 @Injectable()
 export class EventService {

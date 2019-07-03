@@ -4,11 +4,11 @@ import {
   HttpErrorResponse,
   HttpHeaders
 } from '@angular/common/http';
+import { Store } from '@ngrx/store';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry, map } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
-import { User } from '../models/user';
-import { Store } from '@ngrx/store';
+import { User } from '../models/user.model';
 import * as login from '../store/login/login.actions';
 
 @Injectable()
@@ -17,6 +17,7 @@ export class UserService {
     private readonly http: HttpClient,
     private readonly store: Store<any>
   ) {}
+
   isAuthenticated: boolean;
 
   signup(user: User): Observable<any> {
@@ -44,11 +45,11 @@ export class UserService {
     return this.http.get(`${environment.apiURL}users?email=${user.email}`, { headers }).pipe(
       retry(3),
       map(us => {
-        if (us[0].email) {
+        if (us[0].email && us[0].password === user.password) {
           localStorage.setItem('user', JSON.stringify(us[0]));
           this.setUser();
-          return us[0].password === user.password ? us[0] : 'Password not valid.';
         }
+        return us[0].password === user.password ? us[0] : 'Password not valid.';
       }),
       catchError(this.handleError)
     );

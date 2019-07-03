@@ -5,11 +5,7 @@ import { NgModule } from '@angular/core';
 import { CoreModule } from './core/core.module';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
-
-// Modules
-import { LoginModule } from './login/login.module';
 import { EventsModule } from './events/events.module';
-import { ProfileModule } from './profile/profile.module';
 
 // State Management
 import { StoreModule } from '@ngrx/store';
@@ -22,6 +18,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -35,10 +32,9 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     CoreModule,
     AppRoutingModule,
     BrowserModule,
+    BrowserAnimationsModule,
     SharedModule,
-    LoginModule,
     EventsModule,
-    ProfileModule,
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([LayoutEffects])
   ],

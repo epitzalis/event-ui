@@ -1,6 +1,5 @@
-import { Component, DoCheck, OnDestroy } from '@angular/core';
-import { User } from '../models/user';
-import { UserService } from '../core/user.service';
+import { Component, OnDestroy } from '@angular/core';
+import { User } from '../models/user.model';
 import { SubscriptionLike } from 'rxjs';
 import { select, Store } from '@ngrx/store';
 
@@ -14,7 +13,6 @@ export class ToolbarComponent implements OnDestroy {
   isAuthenticated: boolean;
   subscriptionLogin: SubscriptionLike;
   constructor(
-    private readonly userService: UserService,
     private readonly store: Store<any>
   ) {
     this.subscriptionLogin = store.pipe(select('login')).subscribe(state => {
