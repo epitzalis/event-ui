@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../../core/user.service';
+import { ValidateFormService } from '../../core/validate-form.service';
 
 @Component({
   selector: 'eui-login-form',
@@ -13,6 +14,7 @@ export class LoginFormComponent implements OnInit {
   msgs: string;
 
   constructor(
+    public readonly validateFormService: ValidateFormService,
     private readonly fb: FormBuilder,
     private readonly router: Router,
     private readonly userService: UserService
@@ -24,8 +26,8 @@ export class LoginFormComponent implements OnInit {
 
   createForm() {
     this.loginForm = this.fb.group({
-      email: '',
-      password: ''
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required]],
     });
   }
 

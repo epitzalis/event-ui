@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Event } from '../../models/event';
-import { EventService } from '../../core/event.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Event } from '../../models/event';
 import { User } from '../../models/user.model';
+import { ValidateFormService } from '../../core/validate-form.service';
+import { EventService } from '../../core/event.service';
 
 @Component({
   selector: 'eui-event-form',
@@ -18,10 +19,11 @@ export class EventFormComponent implements OnInit {
   private readonly PARAM_ID = 'id';
 
   constructor(
+    public readonly validateFormService: ValidateFormService,
     private readonly fb: FormBuilder,
     private readonly eventService: EventService,
     private readonly router: Router,
-    private readonly route: ActivatedRoute
+    private readonly route: ActivatedRoute,
   ) {}
 
   ngOnInit() {
@@ -55,19 +57,6 @@ export class EventFormComponent implements OnInit {
       addedBy: [addedByValue, []],
       id: [idValue, []],
     });
-  }
-
-  getError(name: string, field: any): string {
-    if (field.errors) {
-      if (field.errors.required) {
-        return `${name} is required`;
-      } else if (field.errors.minlength) {
-        return `${name} min length is ${field.errors.minlength.requiredLength}`;
-      } else if (field.errors.maxlength) {
-        return `${name} max length is ${field.errors.maxlength.requiredLength}`;
-      }
-    }
-    return '';
   }
 
   onSubmit() {

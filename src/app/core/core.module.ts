@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { EventService } from './event.service';
 import { UserService } from './user.service';
 import { ImagesService } from './images.service';
+import { ValidateFormService } from './validate-form.service';
 
 @NgModule({
   declarations: [],
@@ -17,6 +18,7 @@ import { ImagesService } from './images.service';
     EventService,
     UserService,
     ImagesService,
+    ValidateFormService
   ],
 })
 export class CoreModule {}

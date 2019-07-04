@@ -1,17 +1,24 @@
 <div class="container">
     <h1>Signup</h1>
-  
+
     <form novalidate [formGroup]="signupForm" #fform="ngForm" (ngSubmit)="onSubmit()">
       <mat-form-field>
         <input matInput placeholder="Email" type="text" formControlName="email" />
+        <mat-error *ngIf="signupForm.get('email').errors && signupForm.get('email').touched">
+          {{validateFormService.getError('email', signupForm.get('email'))}}
+        </mat-error>
       </mat-form-field>
       <mat-form-field>
         <input matInput placeholder="Password" type="password" formControlName="password" />
-      </mat-form-field>  
-  
+        <mat-error *ngIf="signupForm.get('password').errors && signupForm.get('password').touched">
+          {{validateFormService.getError('password', signupForm.get('password'))}}
+        </mat-error>
+      </mat-form-field>
+
       <div>
         <div>Already have an account? <a routerLink="/login">Login</a></div>
-        <button mat-raised-button color="primary" type="submit">
+        <button [disabled]="!signupForm.valid || signupForm.pristine"
+            mat-raised-button color="primary" type="submit">
           Signup
         </button>
       </div>

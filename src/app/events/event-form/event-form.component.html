@@ -10,13 +10,13 @@
       <mat-form-field>
         <input matInput placeholder="Title" type="text" formControlName="title" />
         <mat-error *ngIf="addEditForm.get('title').errors && addEditForm.get('title').touched">
-          {{getError('Title', addEditForm.get('title'))}}
+          {{validateFormService.getError('Title', addEditForm.get('title'))}}
         </mat-error>
       </mat-form-field>
       <mat-form-field>
         <input matInput placeholder="Date" type="date" formControlName="date" />
         <mat-error *ngIf="addEditForm.get('date').errors && addEditForm.get('date').touched">
-          {{getError('Date', addEditForm.get('date'))}}
+          {{validateFormService.getError('Date', addEditForm.get('date'))}}
         </mat-error>
       </mat-form-field>
       <mat-form-field>
@@ -27,7 +27,7 @@
           formControlName="location"
         />
         <mat-error *ngIf="addEditForm.get('location').errors && addEditForm.get('location').touched">
-          {{getError('Location', addEditForm.get('location'))}}
+          {{validateFormService.getError('Location', addEditForm.get('location'))}}
         </mat-error>
       </mat-form-field>
 
@@ -40,12 +40,12 @@
           formControlName="description"
         ></textarea>
         <mat-error *ngIf="addEditForm.get('description').errors && addEditForm.get('description').touched">
-          {{getError('Description', addEditForm.get('description'))}}
+          {{validateFormService.getError('Description', addEditForm.get('description'))}}
         </mat-error>
       </mat-form-field>
 
       <div id="save-btn">
-        <button [disabled]="!addEditForm.valid || !addEditForm.touched"
+        <button [disabled]="!addEditForm.valid || addEditForm.pristine"
                 mat-raised-button color="primary" type="submit">
           Save
         </button>

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from '../../models/user.model';
 import { UserService } from '../../core/user.service';
+import { ValidateFormService } from '../../core/validate-form.service';
 
 @Component({
   selector: 'eui-signup-form',
@@ -14,6 +15,7 @@ export class SignupFormComponent implements OnInit {
   user: User;
 
   constructor(
+    public readonly validateFormService: ValidateFormService,
     private readonly fb: FormBuilder,
     private readonly router: Router,
     private readonly userService: UserService
@@ -25,8 +27,8 @@ export class SignupFormComponent implements OnInit {
 
   createForm() {
     this.signupForm = this.fb.group({
-      email: '',
-      password: ''
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required]],
     });
   }
 
