@@ -30,8 +30,12 @@
           </mat-card-subtitle>
           <mat-card-subtitle>
               <p>{{ event.addedBy}}</p>
-          </mat-card-subtitle>  
+          </mat-card-subtitle>
         </mat-card-header>
+
+        <div class="img">
+          <img mat-card-image [src]="imageUrl" alt="Photo">
+        </div>
 
         <mat-card-content>
           <p>{{ event.description }}</p>

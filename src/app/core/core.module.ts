@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 // Services
 import { EventService } from './event.service';
 import { UserService } from './user.service';
+import { ImagesService } from './images.service';
 
 @NgModule({
   declarations: [],
@@ -15,6 +16,7 @@ import { UserService } from './user.service';
   providers: [
     EventService,
     UserService,
+    ImagesService,
   ],
 })
 export class CoreModule {}
