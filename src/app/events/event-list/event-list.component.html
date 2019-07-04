@@ -1,36 +1,55 @@
 <div class="container">
-  <div>
+  <div class="section-title">
     <h1>Events</h1>
   </div>
 
   <div class="content">
     <ng-container *ngIf="userService.checkUser()">
-      <button mat-raised-button color="primary" [routerLink]="['/eventForm/', '']">
+      <button 
+        mat-raised-button
+        color="primary"
+        [routerLink]="['/eventForm/', '']">
         Add Event
       </button>
     </ng-container>
-
-    <div class="filter" *ngIf="isAuthenticated">
-      <div class="filters">
-          Filter:
-          <mat-slide-toggle
-                [checked]="false"
-                [(ngModel)]="slideMyEvents"
-                (change)="myEventsChange()">
-              My events
-          </mat-slide-toggle>
+    <div class="item control">
+      <div class="filter" *ngIf="isAuthenticated">
+        <div class="filters">
+            Filter:
+            <mat-slide-toggle
+                  [checked]="false"
+                  [(ngModel)]="slideMyEvents"
+                  (change)="myEventsChange()">
+                My events
+            </mat-slide-toggle>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div>
-    <div *ngFor="let event of events">
-      <div>
-        <a [routerLink]="['/eventDetails/', event.id]">{{ event.title }}</a>
-        <span>{{ event.date }}</span>
-        <span>{{ event.location }}</span>
-        <span>{{ event.addedBy }}</span>
+    <div class="item events">
+      <div class="event" *ngFor="let event of events">
+
+          <mat-card>
+              <mat-card-header class="event">
+                <mat-card-title class="title">
+                    <a class="link-event" [routerLink]="['/eventDetails/', event.id]">{{ event.title | uppercase }}</a>
+                </mat-card-title>
+                <mat-card-subtitle class="subtitle">
+                  <p>{{ event.location }} - {{ event.date | date: "dd/MM/yyyy" }}</p>
+                </mat-card-subtitle>
+                <mat-card-subtitle>
+                    <p>{{ event.addedBy}}</p>
+                </mat-card-subtitle>
+              </mat-card-header>
+              <mat-card-content class="content">
+                <p>{{ event.description }}</p>
+              </mat-card-content>
+          </mat-card>
+
       </div>
     </div>
+
+
+
   </div>
 </div>

@@ -1,0 +1,7 @@
+@import '../shared/styles/variables';
+
+.container {
+    @include container();
+    @include background('/assets/imgs/patt3.png', center, cover);
+    background-size: cover;
+  }

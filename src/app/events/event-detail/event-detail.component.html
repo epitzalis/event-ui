@@ -3,8 +3,8 @@
       <h1>Event details</h1>
   </div>
 
-  <div *ngIf="event">
-    <div>
+  <div class="event-card-details" *ngIf="event">
+    <div class="edit-event-btn">
       <div *ngIf="isOwner(event)">
           <button
             mat-raised-button
@@ -20,26 +20,27 @@
             Edit Event
         </button>
       </div>
-      <mat-card>
-        <mat-card-header>
-          <mat-card-title>
-            <h3>{{ event.title | uppercase }}</h3>
-          </mat-card-title>
-          <mat-card-subtitle>
-            <p>{{ event.location }} - {{ event.date | date: "dd/MM/yyyy" }}</p>
-          </mat-card-subtitle>
-          <mat-card-subtitle>
-              <p>{{ event.addedBy}}</p>
-          </mat-card-subtitle>
-        </mat-card-header>
-
-        <div class="img">
-          <img mat-card-image [src]="imageUrl" alt="Photo">
-        </div>
-
-        <mat-card-content>
-          <p>{{ event.description }}</p>
-        </mat-card-content>
-      </mat-card>
     </div>
+    <mat-card>
+      <mat-card-header class="event">
+        <mat-card-title class="title">
+          <h3>{{ event.title | uppercase }}</h3>
+        </mat-card-title>
+        <mat-card-subtitle class="subtitle">
+          <p>{{ event.location }} - {{ event.date | date: "dd/MM/yyyy" }}</p>
+        </mat-card-subtitle>
+        <mat-card-subtitle>
+            <p>{{ event.addedBy}}</p>
+        </mat-card-subtitle>
+      </mat-card-header>
+
+      <div class="img">
+        <img mat-card-image [src]="imageUrl" alt="Photo">
+      </div>
+
+      <mat-card-content class="content">
+        <p>{{ event.description }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
 </div>

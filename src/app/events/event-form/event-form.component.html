@@ -1,54 +1,61 @@
 <div class="container">
-    <h2>Add Event</h2>
-    <form
-      novalidate
-      [formGroup]="addEditForm"
-      #form="ngForm"
-      (ngSubmit)="onSubmit()"
-      *ngIf="addEditForm"
-    >
-      <mat-form-field>
-        <input matInput placeholder="Title" type="text" formControlName="title" />
-        <mat-error *ngIf="addEditForm.get('title').errors && addEditForm.get('title').touched">
-          {{validateFormService.getError('Title', addEditForm.get('title'))}}
-        </mat-error>
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="Date" type="date" formControlName="date" />
-        <mat-error *ngIf="addEditForm.get('date').errors && addEditForm.get('date').touched">
-          {{validateFormService.getError('Date', addEditForm.get('date'))}}
-        </mat-error>
-      </mat-form-field>
-      <mat-form-field>
-        <input
-          matInput
-          placeholder="Location"
-          type="text"
-          formControlName="location"
-        />
-        <mat-error *ngIf="addEditForm.get('location').errors && addEditForm.get('location').touched">
-          {{validateFormService.getError('Location', addEditForm.get('location'))}}
-        </mat-error>
-      </mat-form-field>
+    <div class="section-title">
+      <h2>Add Event</h2>
+    </div>
 
-      <mat-form-field>
-        <textarea
-          matInput
-          placeholder="Description"
-          rows="4"
-          type="text"
-          formControlName="description"
-        ></textarea>
-        <mat-error *ngIf="addEditForm.get('description').errors && addEditForm.get('description').touched">
-          {{validateFormService.getError('Description', addEditForm.get('description'))}}
-        </mat-error>
-      </mat-form-field>
+    <div class="form">
+      <form 
+        novalidate
+        [formGroup]="addEditForm"
+        #form="ngForm"
+        (ngSubmit)="onSubmit()"
+        *ngIf="addEditForm"
+      >
+        <mat-form-field>
+          <input matInput placeholder="Title" type="text" formControlName="title" />
+          <mat-error *ngIf="addEditForm.get('title').errors && addEditForm.get('title').touched">
+            {{validateFormService.getError('Title', addEditForm.get('title'))}}
+          </mat-error>
+        </mat-form-field>
 
-      <div id="save-btn">
-        <button [disabled]="!addEditForm.valid || addEditForm.pristine"
-                mat-raised-button color="primary" type="submit">
-          Save
-        </button>
-      </div>
-    </form>
+        <mat-form-field>
+          <input matInput placeholder="Date" type="date" formControlName="date" />
+          <mat-error *ngIf="addEditForm.get('date').errors && addEditForm.get('date').touched">
+            {{validateFormService.getError('Date', addEditForm.get('date'))}}
+          </mat-error>
+        </mat-form-field>
+        
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Location"
+            type="text"
+            formControlName="location"
+          />
+          <mat-error *ngIf="addEditForm.get('location').errors && addEditForm.get('location').touched">
+            {{validateFormService.getError('Location', addEditForm.get('location'))}}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <textarea
+            matInput
+            placeholder="Description"
+            rows="4"
+            type="text"
+            formControlName="description"
+          ></textarea>
+          <mat-error *ngIf="addEditForm.get('description').errors && addEditForm.get('description').touched">
+            {{validateFormService.getError('Description', addEditForm.get('description'))}}
+          </mat-error>
+        </mat-form-field>
+
+        <div id="save-btn">
+          <button [disabled]="!addEditForm.valid || addEditForm.pristine"
+                  mat-raised-button color="primary" type="submit">
+            Save
+          </button>
+        </div>
+      </form>
+    </div>
   </div>

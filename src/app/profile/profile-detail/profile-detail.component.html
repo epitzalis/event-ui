@@ -1,23 +1,25 @@
 <div class="container">
-  <div>
+  <div class="section-title">
       <h1>User Profile</h1>
   </div>
 
-  <div>
+  <div class="wrap">
     <button mat-raised-button color="primary" (click)="logout()">
       Logout
     </button>
   </div>
 
-  <div>
-    <div>
-      <h4>ID: </h4>
-      <span> {{user.id}}</span>
-    </div>
+  <div class="wrap">
+    <div class="userData">
+      <div class="item">
+        <h4>ID: </h4>
+        <span> {{user.id}}</span>
+      </div>
 
-    <div>
-      <h4>Email: </h4>
-      <span> {{user.email}}</span>
+      <div class="item">
+        <h4>Email: </h4>
+        <span> {{user.email}}</span>
+      </div>
     </div>
   </div>
 </div>
