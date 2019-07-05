@@ -8,6 +8,9 @@ import { UserService } from './core/user.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+/**
+ * Class that represent the main component in the app
+ */
 export class AppComponent {
   title = 'events-ui';
 

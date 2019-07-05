@@ -14,6 +14,9 @@ import { EventService } from '../../core/event.service';
   templateUrl: './event-list.component.html',
   styleUrls: ['./event-list.component.scss']
 })
+/**
+ * Class that represent the Event list component in the app
+ */
 export class EventListComponent implements OnInit, OnDestroy {
   events: Event[];
   selectedEvent: Event;
@@ -45,10 +48,18 @@ export class EventListComponent implements OnInit, OnDestroy {
     });
   }
 
+  /**
+   * Mark the event as selected
+   *
+   * @param event The event
+   */
   onSelectEvent(event: Event) {
     this.selectedEvent = event;
   }
 
+  /**
+   * Obtain the event list
+   */
   getEvents() {
     this.eventService.getEvents().subscribe((events: Event[]) => {
       this.events = events;
@@ -56,6 +67,9 @@ export class EventListComponent implements OnInit, OnDestroy {
     });
   }
 
+  /**
+   * Fired when the "my events" filter is toggle
+   */
   myEventsChange() {
     const user: User = JSON.parse(localStorage.getItem('user'));
 
@@ -69,6 +83,9 @@ export class EventListComponent implements OnInit, OnDestroy {
     }
   }
 
+  /**
+   * After destroy the component we need unsubscribe.
+   */
   ngOnDestroy() {
     this.subscriptionLayout.unsubscribe();
     this.subscriptionLogin.unsubscribe();

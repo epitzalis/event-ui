@@ -20,4 +20,7 @@ import { EventDetailComponent } from './event-detail/event-detail.component';
     SharedModule,
   ]
 })
+/**
+ * Module for Events
+ */
 export class EventsModule { }

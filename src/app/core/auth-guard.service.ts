@@ -10,11 +10,10 @@ export class AuthGuard implements CanActivate {
     private readonly userService: UserService
   ) {}
 
+  /**
+   * Check if user is logged.
+   */
   canActivate(): boolean {
-    return this.checkLogin();
-  }
-
-  private checkLogin(): boolean {
     if (this.userService.checkUser()) {
       return true;
     } else {
@@ -22,5 +21,4 @@ export class AuthGuard implements CanActivate {
       return false;
     }
   }
-
 }

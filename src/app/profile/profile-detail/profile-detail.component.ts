@@ -10,6 +10,9 @@ import * as login from '../../store/login/login.actions';
   templateUrl: './profile-detail.component.html',
   styleUrls: ['./profile-detail.component.scss']
 })
+/**
+ * Class that represent the detail profile component in the app
+ */
 export class ProfileDetailComponent implements OnInit {
   user: User;
 
@@ -27,6 +30,9 @@ export class ProfileDetailComponent implements OnInit {
     this.user = JSON.parse(localStorage.getItem('user'));
   }
 
+  /**
+   * Log out use from the system
+   */
   logout() {
     this.userService.logout();
     this.store.dispatch(new login.Logged(false));

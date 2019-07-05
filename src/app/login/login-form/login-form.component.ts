@@ -9,6 +9,9 @@ import { ValidateFormService } from '../../core/validate-form.service';
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.scss']
 })
+/**
+ * Class that represent the login form component in the app
+ */
 export class LoginFormComponent implements OnInit {
   loginForm: FormGroup;
   msgs: string;
@@ -31,6 +34,9 @@ export class LoginFormComponent implements OnInit {
     });
   }
 
+  /**
+   * Fired when user click on "Login" button in the form
+   */
   onSubmit() {
     this.userService.login(this.loginForm.value).subscribe((res: any) => {
       if (res.email) {

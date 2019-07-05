@@ -22,4 +22,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
   ]
 })
+/**
+ * Module for Signup
+ */
 export class SignupModule { }

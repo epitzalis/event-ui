@@ -8,6 +8,9 @@ import { select, Store } from '@ngrx/store';
   templateUrl: './toolbar.component.html',
   styleUrls: ['./toolbar.component.scss']
 })
+/**
+ * Class that represent the toolbar component in top
+ */
 export class ToolbarComponent implements OnDestroy {
   user: User;
   isAuthenticated: boolean;
@@ -25,6 +28,9 @@ export class ToolbarComponent implements OnDestroy {
     });
   }
 
+  /**
+   * After destroy the component we need unsubscribe.
+   */
   ngOnDestroy() {
     this.subscriptionLogin.unsubscribe();
   }

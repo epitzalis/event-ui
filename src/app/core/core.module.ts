@@ -21,4 +21,7 @@ import { ValidateFormService } from './validate-form.service';
     ValidateFormService
   ],
 })
+/**
+ * Module for core sevices
+ */
 export class CoreModule {}

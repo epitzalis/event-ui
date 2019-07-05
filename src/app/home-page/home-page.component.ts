@@ -5,6 +5,9 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.scss']
 })
+/**
+ * Class that represent the home page component in the app
+ */
 export class HomePageComponent implements OnInit {
 
   constructor() { }

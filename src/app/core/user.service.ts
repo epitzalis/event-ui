@@ -20,6 +20,11 @@ export class UserService {
 
   isAuthenticated: boolean;
 
+  /**
+   * Sign up the user
+   *
+   * @param user User to sign up
+   */
   signup(user: User): Observable<any> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json'
@@ -37,6 +42,13 @@ export class UserService {
       );
   }
 
+  /**
+   * Log in user in the system if the password is correct.
+   *
+   * If the password is incorrect return a string message
+   *
+   * @param user Use to log in
+   */
   login(user: User): Observable<any> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json'
@@ -55,24 +67,36 @@ export class UserService {
     );
   }
 
+  /**
+   * Log out the user in the system
+   */
   logout() {
     localStorage.setItem('user', '');
     return false;
   }
 
+  /**
+   * Return true if user is authenticated, false in other case.
+   */
   checkUser(): boolean {
     this.setUser();
     return this.isAuthenticated;
   }
 
+  /**
+   * Determine if user is authenticated and then set result in isAuthenticated properti
+   */
   private setUser() {
     this.isAuthenticated = true;
     this.isAuthenticated = Boolean(localStorage.getItem('user'));
     this.isAuthenticated ? this.store.dispatch(new login.Logged(true)) : this.store.dispatch(new login.Logged(false));
   }
 
-  // Error handling
-
+  /**
+   * Trace in the console different kinds of errors (Http or others) and then throw a generic error.
+   *
+   * @param error The HttpErrorResponse error
+   */
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.

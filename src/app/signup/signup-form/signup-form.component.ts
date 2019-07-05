@@ -10,6 +10,9 @@ import { ValidateFormService } from '../../core/validate-form.service';
   templateUrl: './signup-form.component.html',
   styleUrls: ['./signup-form.component.scss']
 })
+/**
+ * Class that represent the Signup component in the app
+ */
 export class SignupFormComponent implements OnInit {
   signupForm: FormGroup;
   user: User;
@@ -32,6 +35,9 @@ export class SignupFormComponent implements OnInit {
     });
   }
 
+  /**
+   * Fired when user click on "Signup" button in the form
+   */
   onSubmit() {
     this.user = this.signupForm.value;
 

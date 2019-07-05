@@ -4,6 +4,12 @@ import { Injectable } from '@angular/core';
 export class ValidateFormService {
   constructor() {}
 
+  /**
+   * If field has errors, return an error message explaining it. An empty string if it has not.
+   *
+   * @param name Field name
+   * @param field Field object
+   */
   getError(name: string, field: any): string {
     if (field.errors) {
       if (field.errors.required) {

@@ -11,6 +11,9 @@ import { EventService } from '../../core/event.service';
   templateUrl: './event-form.component.html',
   styleUrls: ['./event-form.component.scss']
 })
+/**
+ * Class that represent the event form component in the app
+ */
 export class EventFormComponent implements OnInit {
 
   addEditForm: FormGroup;
@@ -39,6 +42,9 @@ export class EventFormComponent implements OnInit {
     }
   }
 
+  /**
+   * Crate the form used to insert events
+   */
   createForm() {
     const titleValue = this.event ? this.event.title : '';
     const locationValue = this.event ? this.event.location : '';
@@ -59,6 +65,9 @@ export class EventFormComponent implements OnInit {
     });
   }
 
+  /**
+   * Fired when user click on "Create" button of the form
+   */
   onSubmit() {
     const user: User = JSON.parse(localStorage.getItem('user'));
     this.event = this.addEditForm.value;

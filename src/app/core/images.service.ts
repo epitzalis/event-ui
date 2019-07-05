@@ -14,7 +14,9 @@ export class ImagesService {
     private readonly http: HttpClient
   ) {}
 
-
+  /**
+   * Return a random image from unsplash.com
+   */
   getImage(): Observable<any> {
     const headers = new HttpHeaders({
       Authorization: 'Client-ID 9f354e7919a3f56e537616f46b1c1e87b5632d7c7227f2bd469762eed79a6296'
@@ -28,8 +30,11 @@ export class ImagesService {
       );
   }
 
-  // Error handling
-
+  /**
+   * Trace in the console different kinds of errors (Http or others) and then throw a generic error.
+   *
+   * @param error The HttpErrorResponse error
+   */
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.

@@ -11,7 +11,9 @@ import { ImagesService } from '../../core/images.service';
   templateUrl: './event-detail.component.html',
   styleUrls: ['./event-detail.component.scss']
 })
-
+/**
+ * Class that represent the event detail component in the app
+ */
 export class EventDetailComponent implements OnInit {
 
   event: Event;
@@ -33,12 +35,18 @@ export class EventDetailComponent implements OnInit {
     this.getImage();
   }
 
+  /**
+   * Return the event with the ID is the same that id property
+   */
   getEvent() {
     this.eventService.getEvent(this.id).subscribe((event: Event) => {
       this.event = event;
     });
   }
 
+  /**
+   * Return a random image from unsplash.com
+   */
   getImage() {
     this.imagesService.getImage().subscribe((img) => {
       this.imageUrl = img.urls.small;
@@ -46,6 +54,11 @@ export class EventDetailComponent implements OnInit {
     });
   }
 
+  /**
+   * Return true if user stored in localStorage is the owner of the event
+   *
+   * @param event Event to check
+   */
   isOwner(event: Event) {
     let isOwner = false;
     const userString = localStorage.getItem('user');
@@ -58,6 +71,11 @@ export class EventDetailComponent implements OnInit {
     return isOwner;
   }
 
+  /**
+   * Delete the event, if exists, with the ID passed as parameter
+   *
+   * @param id  Event ID
+   */
   deleteEvent(event: Event) {
     if (this.userService.checkUser()) {
       this.eventService.deleteEvent(event.id).subscribe(() => {
