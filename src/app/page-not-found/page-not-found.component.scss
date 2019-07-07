@@ -2,6 +2,6 @@
 
 .container {
     @include container();
-    @include background('/assets/imgs/patt3.png', center, cover);
+    @include background('/assets/imgs/patt2.jpg', center, cover);
     background-size: cover;
   }

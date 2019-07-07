@@ -4,17 +4,20 @@
 
 .container {
   @include container();
-  @include background('/assets/imgs/patt1.png', bottom, contain);
+  @include background('/assets/imgs/patt1.jpg', bottom, contain);
   background-size: cover;
   display: flex;
   flex-flow: column;
   text-align: center;
+  display: inline-block;
 }
 
 .logo {
 
   img {
     width: 250px;
+    border-radius: 4px;
+    margin-bottom: 20px;
   }
 }
 
@@ -34,6 +37,14 @@
     font-weight: 100;
     margin-top: 0.3rem;
   }
+}
+
+.background-card {
+  background-color: white;
+  border-radius: 4px;
+  padding-bottom: 30px;
+  width: 65%;
+  display:inline-block;
 }
 
 .message {

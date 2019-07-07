@@ -3,12 +3,12 @@
 
 .container {
   @include container();
-  @include background('/assets/imgs/patt2.png', center, cover);
+  @include background('/assets/imgs/patt2.jpg', center, cover);
   background-size: cover;
 }
 
 .content {
-  width: 60%;
+  width: 70%;
   margin: 0 auto;
 
   @media(max-width: $screen-md) {
@@ -29,6 +29,7 @@
     align-items: flex-end;
     border-bottom: 1px solid $gray;
     padding-bottom: 0.8rem;
+    color: white;
   }
 
   button {
@@ -36,7 +37,7 @@
   }
 
   .events {
-    width: 60%;
+    width: 90%;
     margin: 4rem auto;
 
     .event {

@@ -4,22 +4,22 @@
   </div>
 
   <div class="wrap">
+    <div class="userData">
+      <div class="item">
+        <h4>Email: </h4>
+        <span> {{user.email}}</span>
+      </div>
+      <div class="item">
+        <h4>ID: </h4>
+        <span> {{user.id}}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
     <button mat-raised-button color="primary" (click)="logout()">
       Logout
     </button>
   </div>
 
-  <div class="wrap">
-    <div class="userData">
-      <div class="item">
-        <h4>ID: </h4>
-        <span> {{user.id}}</span>
-      </div>
-
-      <div class="item">
-        <h4>Email: </h4>
-        <span> {{user.email}}</span>
-      </div>
-    </div>
-  </div>
 </div>

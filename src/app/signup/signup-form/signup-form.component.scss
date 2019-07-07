@@ -4,7 +4,7 @@
 
 .container {
   @include container();
-  @include background('/assets/imgs/patt5.png', center, contain);
+  @include background('/assets/imgs/patt5.jpg', center, contain);
   background-size: cover;
 }
 
@@ -19,6 +19,7 @@
   width: 40%;
   padding: 1rem;
   background-color: rgba(255,255,255,0.9);
+  border-radius: 4px;
 }
 
 .login-btn {

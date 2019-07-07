@@ -3,7 +3,7 @@
 
 .container {
   @include container();
-  @include background('/assets/imgs/patt4.png', center, cover);
+  @include background('/assets/imgs/patt4.jpg', center, cover);
   background-size: cover;
 }
 
@@ -15,8 +15,11 @@
 form {
   display: flex;
   flex-flow: column;
-  width: 40%;
+  width: 50%;
   font-family: $acn-font;
+  background-color: white;
+  padding: 20px;
+  border-radius: 4px;
 }
 
 .save-btn {

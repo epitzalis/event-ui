@@ -2,7 +2,7 @@
 
 .container {
   @include container();
-  @include background('/assets/imgs/patt3.png', center, cover);
+  @include background('/assets/imgs/patt2.jpg', center, cover);
   background-size: cover;
 }
 
@@ -24,6 +24,10 @@
   margin-right: 6px;
 }
 
+.button-edit {
+  margin-left: 10px;
+}
+
 .event {
   box-shadow: none;
   max-width: 500px;
@@ -42,14 +46,15 @@
       margin: 0;
     }
   }
+}
 
-  .img {
-    margin-bottom: 2rem;
-    text-align: center;
+.img {
+  margin-bottom: 2rem;
+  text-align: center;
+}
 
-    img {
-      width: 100%;
-      margin: 0;
-    }
-  }
+img {
+  width: 85%;
+  margin: 0;
+  border-radius: 4px;
 }
