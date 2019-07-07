@@ -11,6 +11,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { RouterModule } from '@angular/router';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+
 
 import 'hammerjs';
 
@@ -40,7 +42,8 @@ import 'hammerjs';
     MatFormFieldModule,
     MatInputModule,
     RouterModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatCheckboxModule,
   ],
   entryComponents: [],
 })

@@ -12,11 +12,15 @@
           </mat-error>
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="Password" type="password" formControlName="password" />
+          <input #password matInput placeholder="Password" type="password" formControlName="password" />
           <mat-error *ngIf="signupForm.get('password').errors && signupForm.get('password').touched">
             {{validateFormService.getError('password', signupForm.get('password'))}}
           </mat-error>
         </mat-form-field>
+          <section class="example-section">
+            <mat-checkbox (change)="showPassword($event.checked)">Show password</mat-checkbox>
+          </section>
+
 
         <div class="login-btn">
           <div class="login">Already have an account? <a routerLink="/login">Login</a></div>

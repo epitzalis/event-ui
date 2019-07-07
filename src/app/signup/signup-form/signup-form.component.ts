@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from '../../models/user.model';
@@ -14,6 +14,8 @@ import { ValidateFormService } from '../../core/validate-form.service';
  * Class that represent the Signup component in the app
  */
 export class SignupFormComponent implements OnInit {
+
+  @ViewChild('password', {static: false}) password: ElementRef;
   signupForm: FormGroup;
   user: User;
 
@@ -33,6 +35,10 @@ export class SignupFormComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
     });
+  }
+
+  showPassword(showPassword: boolean) {
+    this.password.nativeElement.type = showPassword ? 'text' : 'password';
   }
 
   /**
