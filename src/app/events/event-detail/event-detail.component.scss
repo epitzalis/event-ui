@@ -30,7 +30,6 @@
 
 .event {
   box-shadow: none;
-  max-width: 500px;
   background-color: transparent;
   font-family: $acn-font;
   padding: 0;
@@ -54,7 +53,11 @@
 }
 
 img {
-  width: 85%;
+  width: 75%;
   margin: 0;
   border-radius: 4px;
+}
+
+.description {
+  padding: 5px;
 }

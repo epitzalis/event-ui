@@ -18,7 +18,6 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -32,7 +31,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CoreModule,
     AppRoutingModule,
     BrowserModule,
-    BrowserAnimationsModule,
     SharedModule,
     EventsModule,
     StoreModule.forRoot(reducers),

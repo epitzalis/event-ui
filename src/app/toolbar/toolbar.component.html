@@ -1,6 +1,10 @@
 <mat-toolbar class="toolbar" color="primary">
-    <a class="option" mat-raised-button routerLink="/home" routerLinkActive="activeLink">Home</a>
-    <a class="option" mat-raised-button routerLink="/events" routerLinkActive="activeLink">Events</a>
-    <a class="option" mat-raised-button *ngIf="isAuthenticated" routerLink="/profile" routerLinkActive="activeLink">{{user.email}}</a>
-    <a class="option" mat-raised-button *ngIf="!isAuthenticated" routerLink="/login" routerLinkActive="activeLink">Login</a>
+  <a class="option" mat-raised-button routerLink="/home"
+      routerLinkActive="activeLink">Home</a>
+  <a class="option" mat-raised-button routerLink="/events"
+      routerLinkActive="activeLink">Events</a>
+  <a class="option" mat-raised-button *ngIf="isAuthenticated"
+      routerLink="/profile" routerLinkActive="activeLink">{{user.email}}</a>
+  <a class="option" mat-raised-button *ngIf="!isAuthenticated"
+      routerLink="/login" routerLinkActive="activeLink">Login</a>
 </mat-toolbar>
