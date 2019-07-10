@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Event } from '../../models/event';
+import { Event } from '../../models/event.model';
 import { User } from '../../models/user.model';
 import { ValidateFormService } from '../../core/validate-form.service';
 import { EventService } from '../../core/event.service';

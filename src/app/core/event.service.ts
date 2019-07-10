@@ -7,7 +7,7 @@ import {
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
-import { Event } from '../models/event';
+import { Event } from '../models/event.model';
 import { HTTP_HEADER_VALUE_APPLICATION_JSON } from './constants-service';
 import { User } from '../models/user.model';
 

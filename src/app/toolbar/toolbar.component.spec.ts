@@ -1,14 +1,31 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ToolbarComponent } from './toolbar.component';
+import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { of, Subscription } from 'rxjs';
+import { User } from '../models/user.model';
 
-describe('ToolbarComponent', () => {
+const storeMock = {
+  pipe: () => of(null),
+};
+
+fdescribe('ToolbarComponent', () => {
   let component: ToolbarComponent;
   let fixture: ComponentFixture<ToolbarComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ToolbarComponent ]
+      declarations: [
+        ToolbarComponent
+      ],
+      providers: [
+        {
+          provide: Store,
+          useValue: storeMock,
+        },
+      ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
     })
     .compileComponents();
   }));
@@ -22,4 +39,34 @@ describe('ToolbarComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('store do get user', () => {
+    component.subscriptionLogin = new Subscription();
+    const store = fixture.debugElement.injector.get(Store);
+    const spy = spyOn(store, 'pipe').and.returnValue(of({
+      logged: true,
+    }));
+    const mockUser: User = {
+      id: '0',
+      email: 'email@mock.com',
+      password: '',
+    };
+    spyOn(localStorage, 'getItem').and.callFake( () => {
+      return JSON.stringify(mockUser);
+    });
+    component.ngOnInit();
+
+    expect(spy).toHaveBeenCalled();
+  });
+
+  it('store do not get user', () => {
+    component.subscriptionLogin = new Subscription();
+    const store = fixture.debugElement.injector.get(Store);
+    spyOn(store, 'pipe').and.returnValue(of({
+      logged: false,
+    }));
+    component.ngOnInit();
+    expect(component.isAuthenticated).toBeFalsy();
+  });
+
 });
