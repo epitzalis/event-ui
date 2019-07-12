@@ -47,7 +47,7 @@ export class SignupFormComponent implements OnInit {
   onSubmit() {
     this.user = this.signupForm.value;
 
-    this.userService.signup(this.user).subscribe((event: Event) => {
+    this.userService.signup(this.user).subscribe(() => {
       this.router.navigate(['/events']);
     });
   }

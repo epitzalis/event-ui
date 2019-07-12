@@ -10,7 +10,7 @@ const storeMock = {
   pipe: () => of(null),
 };
 
-fdescribe('ToolbarComponent', () => {
+describe('ToolbarComponent', () => {
   let component: ToolbarComponent;
   let fixture: ComponentFixture<ToolbarComponent>;
 
@@ -51,9 +51,7 @@ fdescribe('ToolbarComponent', () => {
       email: 'email@mock.com',
       password: '',
     };
-    spyOn(localStorage, 'getItem').and.callFake( () => {
-      return JSON.stringify(mockUser);
-    });
+    spyOn(localStorage, 'getItem').and.callFake( () => JSON.stringify(mockUser));
     component.ngOnInit();
 
     expect(spy).toHaveBeenCalled();

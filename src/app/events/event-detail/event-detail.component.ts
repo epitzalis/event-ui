@@ -64,9 +64,7 @@ export class EventDetailComponent implements OnInit {
     const userString = localStorage.getItem('user');
     if (userString) {
       const user: User = JSON.parse(userString);
-      if (user) {
-        isOwner = event.addedBy === user.email;
-      }
+      isOwner = event.addedBy === user.email;
     }
     return isOwner;
   }
@@ -79,8 +77,8 @@ export class EventDetailComponent implements OnInit {
   deleteEvent(event: Event) {
     if (this.userService.checkUser()) {
       this.eventService.deleteEvent(event.id).subscribe(() => {
+        this.router.navigate(['/events']);
       });
     }
-    this.router.navigate(['/events']);
   }
 }

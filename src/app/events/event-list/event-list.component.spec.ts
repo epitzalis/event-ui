@@ -17,7 +17,7 @@ const storeMock = {
   dispatch: jasmine.createSpy(),
 };
 
-fdescribe('EventListComponent', () => {
+describe('EventListComponent', () => {
   let component: EventListComponent;
   let fixture: ComponentFixture<EventListComponent>;
 
@@ -86,9 +86,7 @@ fdescribe('EventListComponent', () => {
   });
 
   it('myEventsChange call getEvents() when user is null', () => {
-    spyOn(localStorage, 'getItem').and.callFake( () => {
-      return null;
-    });
+    spyOn(localStorage, 'getItem').and.callFake( () => null);
     const eventService = fixture.debugElement.injector.get(EventService);
     const spy = spyOn(eventService, 'getEvents').and.callFake( () => {
       return of([null, null]);
@@ -103,9 +101,7 @@ fdescribe('EventListComponent', () => {
       email: 'email@mock.com',
       password: null,
     };
-    spyOn(localStorage, 'getItem').and.callFake( () => {
-      return JSON.stringify(mockUser);
-    });
+    spyOn(localStorage, 'getItem').and.callFake( () => JSON.stringify(mockUser));
     const store = fixture.debugElement.injector.get(Store);
     component.slideMyEvents = true;
     component.myEventsChange();

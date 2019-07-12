@@ -30,7 +30,7 @@ export class EventFormComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    const id = this.route.snapshot.params[this.PARAM_ID];
+    const id = this.route.snapshot.paramMap.get(this.PARAM_ID);
 
     if (id) {
       this.eventService.getEvent(id).subscribe((event: Event) => {
