@@ -11,6 +11,7 @@ import { ImagesService } from '../../core/images.service';
 import { EventService } from '../../core/event.service';
 import { UserService } from '../../core/user.service';
 import { User } from '../../models/user.model';
+import { ErrorService } from '../../core/error.service';
 
 describe('EventDetailComponent', () => {
   let component: EventDetailComponent;
@@ -26,6 +27,16 @@ describe('EventDetailComponent', () => {
     password: null,
   };
 
+  const mockImg = {
+    urls: {
+      small: 'imgURL',
+    },
+  };
+
+  const mockImagesService = {
+    getImage: () => of(mockImg),
+  };
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
@@ -38,10 +49,14 @@ describe('EventDetailComponent', () => {
       ],
       providers: [
         EventService,
-        ImagesService,
+        ErrorService,
         {
           provide: UserService,
           useValue: mockUserService,
+        },
+        {
+          provide: ImagesService,
+          useValue: mockImagesService,
         },
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]
@@ -61,14 +76,7 @@ describe('EventDetailComponent', () => {
 
   it('getImage obtain a img and execute getEvent', () => {
     const eventService = fixture.debugElement.injector.get(EventService);
-    const imagesService = fixture.debugElement.injector.get(ImagesService);
-    const mockImg = {
-      urls: {
-        small: 'imgURL'
-      }
-    };
     const spy = spyOn(eventService, 'getEvent').and.callFake( () =>  of([]));
-    spyOn(imagesService, 'getImage').and.callFake( () =>  of(mockImg));
     component.getImage();
     expect(component.imageUrl).toBe('imgURL');
     expect(spy).toHaveBeenCalled();

@@ -1,3 +1,4 @@
+import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -7,13 +8,14 @@ import { Store } from '@ngrx/store';
 import { ProfileDetailComponent } from './profile-detail.component';
 import { UserService } from '../../core/user.service';
 import { User } from '../../models/user.model';
+import { ErrorService } from '../../core/error.service';
 
 describe('ProfileDetailComponent', () => {
   let component: ProfileDetailComponent;
   let fixture: ComponentFixture<ProfileDetailComponent>;
 
   const storeMock = {
-    dispatch: () => {},
+    dispatch: jasmine.createSpy(),
   };
 
   const mockUser: User = {
@@ -33,11 +35,13 @@ describe('ProfileDetailComponent', () => {
       ],
       providers: [
         UserService,
+        ErrorService,
         {
           provide: Store,
           useValue: storeMock,
         },
       ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]
     })
     .compileComponents();
   }));

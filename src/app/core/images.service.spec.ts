@@ -1,19 +1,14 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { TestBed, getTestBed } from '@angular/core/testing';
-import { HttpTestingController, HttpClientTestingModule } from '@angular/common/http/testing';
-import { Store } from '@ngrx/store';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
-import { UserService } from './user.service';
+import { ImagesService } from './images.service';
 import { ErrorService } from './error.service';
 
 describe('UserService', () => {
 
-  let service: UserService;
+  let service: ImagesService;
   let httpMock: HttpTestingController;
-
-  const storeMock = {
-    dispatch: jasmine.createSpy(),
-  };
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -21,19 +16,15 @@ describe('UserService', () => {
         HttpClientTestingModule,
       ],
       providers: [
-        UserService,
+        ImagesService,
         ErrorService,
-        {
-          provide: Store,
-          useValue: storeMock,
-        },
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]
     });
   });
 
   beforeEach(() => {
-    service = TestBed.get(UserService);
+    service = TestBed.get(ImagesService);
     httpMock = getTestBed().get(HttpTestingController);
   });
 
@@ -42,10 +33,24 @@ describe('UserService', () => {
     httpMock.verify();
   });
 
+
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
 
+  it('getImage get image', () => {
+    const mockImg = {
+      urls: {
+        small: 'imgURL',
+      },
+    };
+    service.getImage().subscribe((resp: any) => {
+      expect(resp).toEqual(mockImg);
+    });
 
+    const req = httpMock.expectOne('https://api.unsplash.com/photos/random?orientation=landscape&query=event');
+    expect(req.request.method).toBe('GET');
+    req.flush(mockImg);
+  });
 
 });

@@ -11,6 +11,7 @@ import { ValidateFormService } from '../../core/validate-form.service';
 import { EventService } from '../../core/event.service';
 import { Event } from '../../models/event.model';
 import { User } from '../../models/user.model';
+import { ErrorService } from '../../core/error.service';
 
 
 describe('EventFormComponent', () => {
@@ -53,6 +54,7 @@ describe('EventFormComponent', () => {
       providers: [
         ValidateFormService,
         EventService,
+        ErrorService,
         {
           provide: ActivatedRoute,
           useValue: activatedRouteMock,
