@@ -27,14 +27,11 @@ describe('UserService', () => {
   });
 
   it('handleError return error', () => {
-
     const mockErrorEvent = new ErrorEvent('network error');
     const mockHttpErrorResponse = new HttpErrorResponse({error: mockErrorEvent});
-    console.log(mockHttpErrorResponse);
 
     expect(service.handleError(mockHttpErrorResponse) instanceof Observable).toBeTruthy();
     expect(service.handleError(mockErrorEvent as any) instanceof Observable).toBeTruthy();
-
   });
 
 });
