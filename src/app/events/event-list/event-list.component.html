@@ -26,7 +26,7 @@
       </div>
     </ng-container>
     <div class="item events">
-      <div class="event" *ngFor="let event of events">
+      <div class="event" *ngFor="let event of events" @enterState>
 
         <mat-card>
             <mat-card-header class="event">

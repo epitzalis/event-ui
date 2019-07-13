@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { SubscriptionLike } from 'rxjs';
+import { trigger, style, state, transition, animate } from '@angular/animations';
 import * as layout from '../../store/layout/layout.actions';
 
 import { Event } from '../../models/event.model';
@@ -12,7 +13,21 @@ import { EventService } from '../../core/event.service';
 @Component({
   selector: 'eui-event-list',
   templateUrl: './event-list.component.html',
-  styleUrls: ['./event-list.component.scss']
+  styleUrls: ['./event-list.component.scss'],
+  animations: [
+    trigger('enterState', [
+      state('void', style({
+        transform: 'translateX(-100%)',
+        opacity: 0,
+      })),
+      transition(':enter', [
+        animate(300, style({
+          transform: 'translateX(0)',
+          opacity: 1,
+        }))
+      ]),
+    ])
+  ]
 })
 /**
  * Class that represent the Event list component in the app
