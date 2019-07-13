@@ -10,6 +10,9 @@ import { ErrorService } from '../../core/error.service';
 import { EventService } from '../../core/event.service';
 import { UserService } from '../../core/user.service';
 
+/**
+ * Store mock for tests
+ */
 const storeMock = {
   pipe: () => of({
     filteredEvents: [],
@@ -22,6 +25,9 @@ describe('EventListComponent', () => {
   let component: EventListComponent;
   let fixture: ComponentFixture<EventListComponent>;
 
+  /**
+   * testbed configuration
+   */
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
@@ -63,6 +69,9 @@ describe('EventListComponent', () => {
     expect(component.isAuthenticated).toBeTruthy();
   });
 
+/**
+ * try to change the selected event
+ */
   it('onSelectEvent changes the selectedEvent variable', () => {
     component.selectedEvent = null;
     const mockEvent: Event = {
@@ -97,6 +106,9 @@ describe('EventListComponent', () => {
     expect(spy).toHaveBeenCalled();
   });
 
+/**
+ * when user exist should call dispatch
+ */
   it('myEventsChange call dispatch when exist user', () => {
     const mockUser: User = {
       id: '0',

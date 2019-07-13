@@ -20,6 +20,9 @@ describe('LoginFormComponent', () => {
     login: () => of({ email: 'email@mock.com' }),
   };
 
+  /**
+   * testbed configuration
+   */
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [

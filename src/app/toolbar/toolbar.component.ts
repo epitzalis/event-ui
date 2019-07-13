@@ -30,7 +30,7 @@ export class ToolbarComponent implements OnInit, OnDestroy {
     });
   }
   /**
-   * After destroy the component we need unsubscribe.
+   * After destroy the component loginSuscription need unsubscribe.
    */
   ngOnDestroy() {
     if (this.subscriptionLogin) {

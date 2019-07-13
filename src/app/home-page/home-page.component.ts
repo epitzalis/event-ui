@@ -8,11 +8,8 @@ import { Component, OnInit } from '@angular/core';
 /**
  * Class that represent the home page component in the app
  */
-export class HomePageComponent implements OnInit {
+export class HomePageComponent {
 
   constructor() { }
-
-  ngOnInit() {
-  }
 
 }

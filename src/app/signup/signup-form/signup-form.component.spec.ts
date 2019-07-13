@@ -18,6 +18,9 @@ describe('SignupFormComponent', () => {
     signup: () => of({ email: 'email@mock.com' }),
   };
 
+  /**
+   * testbed configuration
+   */
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
@@ -62,6 +65,9 @@ describe('SignupFormComponent', () => {
     expect(spy).toHaveBeenCalled();
   });
 
+  /**
+   * try that change type of input
+   */
   it('showPassword change type of input', () => {
     component.showPassword(true);
     expect(component.password.nativeElement.type).toBe('text');

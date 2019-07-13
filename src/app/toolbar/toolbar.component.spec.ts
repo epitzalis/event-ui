@@ -6,6 +6,9 @@ import { Store } from '@ngrx/store';
 import { of, Subscription } from 'rxjs';
 import { User } from '../models/user.model';
 
+/**
+ * store mock
+ */
 const storeMock = {
   pipe: () => of(null),
 };
@@ -14,6 +17,9 @@ describe('ToolbarComponent', () => {
   let component: ToolbarComponent;
   let fixture: ComponentFixture<ToolbarComponent>;
 
+  /**
+   * testbed configuration
+   */
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
@@ -40,6 +46,9 @@ describe('ToolbarComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  /**
+   * try that get user from store
+   */
   it('store do get user', () => {
     component.subscriptionLogin = new Subscription();
     const store = fixture.debugElement.injector.get(Store);
@@ -57,6 +66,9 @@ describe('ToolbarComponent', () => {
     expect(spy).toHaveBeenCalled();
   });
 
+  /**
+   * When store not return user
+   */
   it('store do not get user', () => {
     component.subscriptionLogin = new Subscription();
     const store = fixture.debugElement.injector.get(Store);

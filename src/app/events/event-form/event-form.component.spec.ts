@@ -18,6 +18,9 @@ describe('EventFormComponent', () => {
   let component: EventFormComponent;
   let fixture: ComponentFixture<EventFormComponent>;
 
+  /**
+   * mock data
+   */
   const activatedRouteMock = {
     snapshot: {
       paramMap: {
@@ -41,6 +44,9 @@ describe('EventFormComponent', () => {
     id: '1',
   };
 
+  /**
+   * testbed configuration
+   */
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
@@ -91,6 +97,9 @@ describe('EventFormComponent', () => {
     expect(component.event).toEqual(mockEvent);
   });
 
+  /**
+   * onSubmit call addEvent and navigate
+   */
   it('onSubmit execute addEvent correctly', () => {
     spyOn(localStorage, 'getItem').and.callFake( () => JSON.stringify(mockUser));
     const eventService = fixture.debugElement.injector.get(EventService);
@@ -103,6 +112,9 @@ describe('EventFormComponent', () => {
     expect(spy2).toHaveBeenCalled();
   });
 
+  /**
+   * onSubmit call updateEvent and navigate
+   */
   it('onSubmit execute updateEvent correctly', () => {
     spyOn(localStorage, 'getItem').and.callFake( () => JSON.stringify(mockUser));
     const eventService = fixture.debugElement.injector.get(EventService);

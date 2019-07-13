@@ -1,3 +1,6 @@
+/**
+ * interface used to store an event
+ */
 export interface Event {
   id: string;
   title: string;

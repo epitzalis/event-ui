@@ -12,6 +12,9 @@ describe('EventService', () => {
   let service: EventService;
   let httpMock: HttpTestingController;
 
+  /**
+   * mock data
+   */
   const mockEvent: Event = {
     title: 'title event',
     location: 'location event',
@@ -21,6 +24,9 @@ describe('EventService', () => {
     id: '1',
   };
 
+  /**
+   * testbed configuration
+   */
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
@@ -40,7 +46,9 @@ describe('EventService', () => {
   });
 
   afterEach(() => {
-    // Check that there aren't pending requests
+    /**
+     * Check that there aren't pending requests
+     */
     httpMock.verify();
   });
 

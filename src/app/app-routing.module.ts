@@ -3,14 +3,18 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AuthGuard } from './core/auth-guard.service';
 
-// Components
+/**
+ * Components
+ */
 import { HomePageComponent } from './home-page/home-page.component';
 import { EventListComponent } from './events/event-list/event-list.component';
 import { EventDetailComponent } from './events/event-detail/event-detail.component';
 import { EventFormComponent } from './events/event-form/event-form.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
-
+/**
+ * router with lazy loading
+ */
 const routes: Routes = [
   {
     path: 'home',
@@ -58,4 +62,7 @@ const routes: Routes = [
   exports: [RouterModule],
   providers: [AuthGuard],
 })
+/**
+ * Routing Module for the app
+ */
 export class AppRoutingModule { }

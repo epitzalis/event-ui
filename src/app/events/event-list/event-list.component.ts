@@ -4,9 +4,15 @@ import { SubscriptionLike } from 'rxjs';
 import { trigger, style, state, transition, animate } from '@angular/animations';
 import * as layout from '../../store/layout/layout.actions';
 
+/**
+ * models
+*/
 import { Event } from '../../models/event.model';
 import { User } from '../../models/user.model';
 
+/**
+ * services
+ */
 import { UserService } from '../../core/user.service';
 import { EventService } from '../../core/event.service';
 

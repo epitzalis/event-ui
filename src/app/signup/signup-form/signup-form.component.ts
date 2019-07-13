@@ -15,6 +15,9 @@ import { ValidateFormService } from '../../core/validate-form.service';
  */
 export class SignupFormComponent implements OnInit {
 
+  /**
+   * ViewChild to be able to change input type in pasword
+   */
   @ViewChild('password', {static: false}) password: ElementRef;
   signupForm: FormGroup;
   user: User;
@@ -30,6 +33,9 @@ export class SignupFormComponent implements OnInit {
     this.createForm();
   }
 
+  /**
+   * inicialize form
+   */
   createForm() {
     this.signupForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -37,6 +43,9 @@ export class SignupFormComponent implements OnInit {
     });
   }
 
+  /**
+   * change type of input when click in check show password
+   */
   showPassword(showPassword: boolean) {
     this.password.nativeElement.type = showPassword ? 'text' : 'password';
   }
@@ -46,7 +55,6 @@ export class SignupFormComponent implements OnInit {
    */
   onSubmit() {
     this.user = this.signupForm.value;
-
     this.userService.signup(this.user).subscribe(() => {
       this.router.navigate(['/events']);
     });

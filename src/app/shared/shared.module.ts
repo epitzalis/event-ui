@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 
-// Angular material
+/**
+ * Angular material
+ */
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -12,7 +14,6 @@ import { MatInputModule } from '@angular/material/input';
 import { RouterModule } from '@angular/router';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-
 
 import 'hammerjs';
 
@@ -47,4 +48,8 @@ import 'hammerjs';
   ],
   entryComponents: [],
 })
+
+/**
+ * shared module contains component by angular material
+ */
 export class SharedModule { }

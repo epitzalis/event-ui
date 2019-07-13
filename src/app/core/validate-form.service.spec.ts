@@ -7,6 +7,9 @@ describe('UserService', () => {
 
   let service: ValidateFormService;
 
+  /**
+   * testbed configuration
+   */
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
@@ -24,7 +27,9 @@ describe('UserService', () => {
     expect(service).toBeTruthy();
   });
 
-
+  /**
+   * when form have 0 errors, not return mesagge errorme
+   */
   it('getError not return error', () => {
     expect(service.getError('', {})).toBe('');
     expect(service.getError('', { errors: {}})).toBe('');

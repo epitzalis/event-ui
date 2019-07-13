@@ -43,7 +43,8 @@ export class EventFormComponent implements OnInit {
   }
 
   /**
-   * Crate the form used to insert events
+   * Crate the form used to insert or edit events
+   * reactive form
    */
   createForm() {
     const titleValue = this.event ? this.event.title : '';

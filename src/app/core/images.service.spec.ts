@@ -10,6 +10,9 @@ describe('UserService', () => {
   let service: ImagesService;
   let httpMock: HttpTestingController;
 
+  /**
+   * testbed configuration
+   */
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
@@ -29,7 +32,9 @@ describe('UserService', () => {
   });
 
   afterEach(() => {
-    // Check that there aren't pending requests
+    /**
+     * Check that there aren't pending requests
+     */
     httpMock.verify();
   });
 

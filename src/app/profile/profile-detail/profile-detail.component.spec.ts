@@ -14,6 +14,9 @@ describe('ProfileDetailComponent', () => {
   let component: ProfileDetailComponent;
   let fixture: ComponentFixture<ProfileDetailComponent>;
 
+  /**
+   * store mock
+   */
   const storeMock = {
     dispatch: jasmine.createSpy(),
   };
@@ -24,6 +27,9 @@ describe('ProfileDetailComponent', () => {
     password: null,
   };
 
+  /**
+   * testbed configuration
+   */
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
@@ -62,6 +68,9 @@ describe('ProfileDetailComponent', () => {
     expect(component.user).toEqual(mockUser);
   });
 
+  /**
+   * when logout the page redirect to home
+   */
   it('logout execute userService.logout() and navigate', () => {
     const userService = fixture.debugElement.injector.get(UserService);
     const routerService = fixture.debugElement.injector.get(Router);

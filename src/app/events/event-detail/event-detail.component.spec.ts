@@ -17,6 +17,9 @@ describe('EventDetailComponent', () => {
   let component: EventDetailComponent;
   let fixture: ComponentFixture<EventDetailComponent>;
 
+ /**
+  * mock data
+  */
   const mockUserService = {
     checkUser: () => true,
   };
@@ -37,6 +40,9 @@ describe('EventDetailComponent', () => {
     getImage: () => of(mockImg),
   };
 
+  /**
+   * testbed configuration
+   */
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
@@ -101,7 +107,9 @@ describe('EventDetailComponent', () => {
     expect(spy).not.toHaveBeenCalled();
   });
 
-  // isOwner return true if user stored in localStorage is the owner of the event
+  /**
+   * isOwner return true if user stored in localStorage is the owner of the event
+   */
   it('isOwner return false because not get user', () => {
     spyOn(localStorage, 'getItem').and.callFake( () => null);
     expect(component.isOwner( { addedBy: '' } as any)).toBeFalsy();

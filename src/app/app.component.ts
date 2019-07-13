@@ -12,13 +12,16 @@ import { UserService } from './core/user.service';
  * Class that represent the main component in the app
  */
 export class AppComponent {
-  title = 'events-ui';
 
   constructor(
     private readonly userService: UserService,
     private readonly store: Store<any>
   ) {
-    this.userService.checkUser() ? this.store.dispatch(new login.Logged(true)) : this.store.dispatch(new login.Logged(false));
+    /**
+     * check user in store
+     */
+    this.userService.checkUser() ? this.store.dispatch(new login.Logged(true))
+                  : this.store.dispatch(new login.Logged(false));
   }
 
 }

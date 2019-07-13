@@ -13,6 +13,9 @@ describe('UserService', () => {
   let service: UserService;
   let httpMock: HttpTestingController;
 
+  /**
+   * mock data
+   */
   const storeMock = {
     dispatch: () => true,
   };
@@ -27,6 +30,9 @@ describe('UserService', () => {
     password: '',
   };
 
+  /**
+   * testbed configuration
+   */
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
@@ -53,7 +59,9 @@ describe('UserService', () => {
   });
 
   afterEach(() => {
-    // Check that there aren't pending requests
+    /**
+     * Check that there aren't pending requests
+     */
     httpMock.verify();
   });
 

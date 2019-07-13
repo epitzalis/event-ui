@@ -14,7 +14,9 @@ describe('AppComponent', () => {
   const storeMock = {
     dispatch: () => true,
   };
-
+  /**
+   * testbed configuration
+   */
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
@@ -48,10 +50,14 @@ describe('AppComponent', () => {
     const userService2 = {
       checkUser: () => false,
     };
-    // When login is true
+    /**
+     * When login is true
+     */
     const appComponent1 = new AppComponent(userService1 as any, storeMock as any);
     expect(appComponent1).toBeTruthy();
-    // When login is false
+    /**
+     * When login is false
+     */
     const appComponent2 = new AppComponent(userService2 as any, storeMock as any);
     expect(appComponent2).toBeTruthy();
   });
