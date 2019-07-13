@@ -1,14 +1,14 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { EventListComponent } from './event-list.component';
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
-import { EventService } from 'src/app/core/event.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { UserService } from 'src/app/core/user.service';
 import { of } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { Event } from '../../models/event.model';
 import { User } from '../../models/user.model';
 import { ErrorService } from '../../core/error.service';
+import { EventService } from '../../core/event.service';
+import { UserService } from '../../core/user.service';
 
 const storeMock = {
   pipe: () => of({

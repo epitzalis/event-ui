@@ -76,7 +76,7 @@ describe('EventDetailComponent', () => {
 
   it('getImage obtain a img and execute getEvent', () => {
     const eventService = fixture.debugElement.injector.get(EventService);
-    const spy = spyOn(eventService, 'getEvent').and.callFake( () =>  of([]));
+    const spy = spyOn(eventService, 'getEvent').and.callFake( () =>  of(null));
     component.getImage();
     expect(component.imageUrl).toBe('imgURL');
     expect(spy).toHaveBeenCalled();

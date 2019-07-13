@@ -8,7 +8,6 @@ import { catchError, retry } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { Event } from '../models/event.model';
 import { HTTP_HEADER_VALUE_APPLICATION_JSON } from './constants-service';
-import { User } from '../models/user.model';
 import { ErrorService } from './error.service';
 
 @Injectable()
@@ -21,12 +20,12 @@ export class EventService {
   /**
    * Return the event list.
    */
-  getEvents(): Observable<any> {
+  getEvents(): Observable<Event[]> {
     const headers = new HttpHeaders({
       HTTP_HEADER_KEY_CONTENT_TYPE : HTTP_HEADER_VALUE_APPLICATION_JSON
     });
 
-    return this.http.get(environment.apiURL + 'events', { headers }).pipe(
+    return this.http.get<Event[]>(environment.apiURL + 'events', { headers }).pipe(
       retry(3),
       catchError(this.errorService.handleError)
     );
@@ -37,12 +36,12 @@ export class EventService {
    *
    * @param id Event ID
    */
-  getEvent(id: string): Observable<any> {
+  getEvent(id: string): Observable<Event> {
     const headers = new HttpHeaders({
       HTTP_HEADER_KEY_CONTENT_TYPE : HTTP_HEADER_VALUE_APPLICATION_JSON
     });
 
-    return this.http.get(`${environment.apiURL}events/${id}`, { headers }).pipe(
+    return this.http.get<Event>(`${environment.apiURL}events/${id}`, { headers }).pipe(
       retry(3),
       catchError(this.errorService.handleError)
     );
@@ -71,13 +70,13 @@ export class EventService {
    *
    * @param event Event to add
    */
-  addEvent(event: Event): Observable<any> {
+  addEvent(event: Event): Observable<Event> {
     const headers = new HttpHeaders({
       HTTP_HEADER_KEY_CONTENT_TYPE : HTTP_HEADER_VALUE_APPLICATION_JSON
     });
 
     return this.http
-      .post(environment.apiURL + 'events/', event, { headers })
+      .post<Event>(environment.apiURL + 'events/', event, { headers })
       .pipe(
         retry(3),
         catchError(this.errorService.handleError)
@@ -89,13 +88,13 @@ export class EventService {
    *
    * @param event Event to update
    */
-  updateEvent(event: Event): Observable<any> {
+  updateEvent(event: Event): Observable<Event> {
     const headers = new HttpHeaders({
       HTTP_HEADER_KEY_CONTENT_TYPE : HTTP_HEADER_VALUE_APPLICATION_JSON
     });
 
     return this.http
-      .put(`${environment.apiURL}events/${event.id}`, event, { headers })
+      .put<Event>(`${environment.apiURL}events/${event.id}`, event, { headers })
       .pipe(
         retry(3),
         catchError(this.errorService.handleError)
@@ -116,23 +115,6 @@ export class EventService {
       retry(3),
       catchError(this.errorService.handleError)
     );
-  }
-
-  /**
-   * Return true if user stored in localStorage is the owner of the event
-   *
-   * @param event Event to check
-   */
-  isOwner(event: Event) {
-    let isOwner = false;
-    const userString = localStorage.getItem('user');
-    if (userString) {
-      const user: User = JSON.parse(userString);
-      if (user) {
-        isOwner = event.addedBy === user.email;
-      }
-    }
-    return isOwner;
   }
 
 }
