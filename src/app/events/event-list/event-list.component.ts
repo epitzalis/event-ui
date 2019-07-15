@@ -6,7 +6,7 @@ import * as layout from '../../store/layout/layout.actions';
 
 /**
  * models
-*/
+ */
 import { Event } from '../../models/event.model';
 import { User } from '../../models/user.model';
 
@@ -55,14 +55,16 @@ export class EventListComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.getEvents();
 
-    this.subscriptionLayout = this.store.pipe(select('layout')).subscribe(state => {
+    // tslint:disable-next-line: no-shadowed-variable
+    this.subscriptionLayout = this.store.pipe(select('layout')).subscribe((state) => {
       if (state && state.filteredEvents) {
         this.events = state.filteredEvents;
         this.selectedEvent = this.events[0];
       }
     });
 
-    this.subscriptionLogin = this.store.pipe(select('login')).subscribe(state => {
+    // tslint:disable-next-line: no-shadowed-variable
+    this.subscriptionLogin = this.store.pipe(select('login')).subscribe((state) => {
       if (state) {
         this.isAuthenticated = state.logged;
       }

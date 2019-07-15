@@ -1,0 +1,56 @@
+{
+  "events": [
+    {
+      "title": "Event 1",
+      "location": "Malaga",
+      "date": "2019-07-04",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ",
+      "addedBy": "test1@accenture.com",
+      "id": 1
+    },
+    {
+      "title": "event 2",
+      "location": "Madrid",
+      "date": "2019-07-27",
+      "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
+      "addedBy": "test1@accenture.com",
+      "id": 2
+    },
+    {
+      "title": "Event 3",
+      "location": "Malaga",
+      "date": "2019-07-31",
+      "description": "Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+      "addedBy": "test1@accenture.com",
+      "id": 3
+    },
+    {
+      "title": "Event 4",
+      "location": "Barcelona",
+      "date": "2019-08-15",
+      "description": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage.",
+      "addedBy": "test1@accenture.com",
+      "id": 4
+    },
+    {
+      "title": "Event 5",
+      "location": "Malaga",
+      "date": "2019-07-20",
+      "description": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
+      "addedBy": "test2@accenture.com",
+      "id": 5
+    }
+  ],
+  "users": [
+    {
+      "email": "test1@accenture.com",
+      "password": "test",
+      "id": "zZ2pYWF"
+    },
+    {
+      "email": "test2@accenture.com",
+      "password": "test",
+      "id": "zZ2pYMf"
+    }
+  ]
+}

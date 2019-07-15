@@ -8,7 +8,8 @@
     "test": "ng test --code-coverage",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "compodoc": "npx compodoc -p tsconfig.app.json"
+    "compodoc": "npx compodoc -p tsconfig.app.json",
+    "bundle-analyzer": "ng build --prod --stats-json && npx webpack-bundle-analyzer dist/events-ui/stats-es2015.json"
   },
   "private": true,
   "dependencies": {
@@ -50,6 +51,7 @@
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
-    "typescript": "~3.4.3"
+    "typescript": "~3.4.3",
+    "webpack-bundle-analyzer": "^3.3.2"
   }
 }
