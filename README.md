@@ -51,4 +51,6 @@ This project was created from scratch (as you can see in the commit history), an
   - 0 Ciclomatic complexity issues
   - 0 Cognitive complexity issues
 
+## Exaple data
+The db.json file is located in project root directory and include example data to run the project.
 
