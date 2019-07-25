@@ -52,7 +52,10 @@ This project was created from scratch (as you can see in the commit history), an
   - 100% Line Coverage
   - 0 Ciclomatic complexity issues
   - 0 Cognitive complexity issues
+  
 ![alt text](/documentation/images/github/image5.png?raw=true)
+
+![alt text](/documentation/images/github/image6.png?raw=true)
 
 ## Exaple data
 The db.json file is located in project root directory and include example data to run the project.
