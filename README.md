@@ -17,7 +17,7 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 ## Features and functionalities
 
-This project was created from scratch (as you can see in the commit history), and include all features and functionalities viewed in the seven labs and Openanthon day.
+This project was created from scratch (as you can see in the commit history), and include all features and functionalities explained in the seven labs and Openanthon day.
 
 ## Additional features
 
@@ -25,21 +25,22 @@ This project was created from scratch (as you can see in the commit history), an
 * **Reactive Foms**: In all forms. Error messages are generated dynamically.
 * **Animations**: Event list is shown with a side animation.
 * **Redesign**: A little bit changes in CSS, HTML and resources. All new images are free to use and was downloaded from [pixabay.com](https://pixabay.com/es/images/search/aurora%20boreal/?colors=green)
-//TODO add image
+//TODO add image 1
 * **UX Inproved**: A little bit changes to inprove the UX.
   - Do not show "Profile" option when user is not logged.
   - Only owner can see the "Delete" and "Edit" buttons for a event.
   - Include the "Logout" button in the profile detail.
   - "Profile" option was renamed to user ID.
 * **Lazy Loading**: Added lazy loading to some modules for a better performance.
-//TODO add image
+//TODO add image 2
 * **Unit Test**: Added 60 Unit Test to cover 100% of code.
+//TODO ad image 2.5 y 2.6
 * **Zero vulnerabilities**: Project was audit with 'npm audit' and SonarQube. No vulnerabilities was detected. 
 * **Code Comments**: More code comments was added for cover more than 11% (audited with a SonarQube rule).
 * **Compodoc**: Compodoc documentation was generated and included in the project.
-//TODO add image
+//TODO add image 3
 * **Bundle Report**: Generated to analyze bundle size for optimization.
-//TODO add image
+//TODO add image 4
 * **Zero TSLint problems**: No file with errors after running 'ng lint'
 * **SonarQube analisys**:
   - 0 bugs
@@ -50,7 +51,12 @@ This project was created from scratch (as you can see in the commit history), an
   - 100% Line Coverage
   - 0 Ciclomatic complexity issues
   - 0 Cognitive complexity issues
+  //TODO add image 5
 
 ## Exaple data
 The db.json file is located in project root directory and include example data to run the project.
+
+## Credits
+* Efisio Pitzalis Morillas
+* Francisco Toro Mateo
 
