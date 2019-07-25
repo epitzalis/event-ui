@@ -35,11 +35,11 @@ This project was created from scratch (as you can see in the commit history), an
 //TODO add image 2
 * **Unit Test**: Added 60 Unit Test to cover 100% of code.
 //TODO ad image 2.5 y 2.6
-* **Zero vulnerabilities**: Project was audit with 'npm audit' and SonarQube. No vulnerabilities was detected. 
+* **Zero vulnerabilities**: Project was audit with 'npm audit' and SonarQube. No vulnerabilities was detected in distribution environment. There is a known vulnerability in compodoc that is not solvable at the moment, but it is acceptable because it is only used to generate documentation and therefore does not jeopardize the production environment.  
 * **Code Comments**: More code comments was added for cover more than 11% (audited with a SonarQube rule).
-* **Compodoc**: Compodoc documentation was generated and included in the project.
+* **Compodoc**: Compodoc was included. Project documentation can be generated running "npm compodoc" command.
 //TODO add image 3
-* **Bundle Report**: Generated to analyze bundle size for optimization.
+* **Bundle Report**: Generated to analyze bundle size for optimization. Bundle Report can be generated running "npm bundle-analyzer" command.
 //TODO add image 4
 * **Zero TSLint problems**: No file with errors after running 'ng lint'
 * **SonarQube analisys**:
