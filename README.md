@@ -36,7 +36,7 @@ This project was created from scratch (as you can see in the commit history), an
 * **Unit Test**: Added 60 Unit Test to cover 100% of code.
 ![alt text](/documentation/images/github/image2.5.png?raw=true)
 ![alt text](/documentation/images/github/image2.6.png?raw=true)
-* **Zero vulnerabilities**: Project was audit with 'npm audit' and SonarQube. No vulnerabilities was detected in distribution environment. There is a known vulnerability in compodoc that is not solvable at the moment, but it is acceptable because it is only used to generate documentation and therefore does not jeopardize the production environment.  
+* **Zero vulnerabilities**: Project was audit with 'npm audit' and SonarQube. No vulnerabilities was detected in distribution environment (until today 25/07/19). There is a known vulnerability in compodoc that is not solvable at the moment, but it is acceptable because it is only used to generate documentation and therefore does not jeopardize the production environment.  
 * **Code Comments**: More code comments was added for cover more than 11% (audited with a SonarQube rule).
 * **Compodoc**: Compodoc was included. Project documentation can be generated running 'npm run compodoc' command.
 ![alt text](/documentation/images/github/image3.png?raw=true)
@@ -45,7 +45,7 @@ This project was created from scratch (as you can see in the commit history), an
 * **Zero TSLint problems**: No file with errors after running 'npm run lint'
 * **SonarQube analisys**:
   - 0 bugs
-  - 0 vulnerabilities (Until today 25/07/19) 
+  - 0 vulnerabilities
   - 0 code smells
   - 0% duplicate code
   - 100% Conditional Coverage
