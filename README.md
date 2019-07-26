@@ -45,7 +45,7 @@ This project was created from scratch (as you can see in the commit history), an
 * **Zero TSLint problems**: No file with errors after running 'npm run lint'
 * **SonarQube analisys**:
   - 0 bugs
-  - 0 vulnerabilities
+  - 0 vulnerabilities (Until today 25/07/19) 
   - 0 code smells
   - 0% duplicate code
   - 100% Conditional Coverage
