@@ -55,7 +55,8 @@ export class EventFormComponent implements OnInit {
     const idValue = this.event ? this.event.id : '';
 
     this.addEditForm = this.fb.group({
-      title: [titleValue, [Validators.required]],
+      title: [titleValue, [Validators.required, Validators.minLength(2),
+                            Validators.maxLength(100)]],
       location: [locationValue, [Validators.required, Validators.minLength(2),
                                   Validators.maxLength(25)]],
       date: [dateValue, [Validators.required]],
