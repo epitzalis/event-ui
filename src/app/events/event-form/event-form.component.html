@@ -50,12 +50,19 @@
           </mat-error>
         </mat-form-field>
 
-        <div id="save-btn">
-          <button [disabled]="!addEditForm.valid || addEditForm.pristine"
-                  mat-raised-button color="primary" type="submit">
-            Save
-          </button>
+        <div>
+          <div class="inner">
+            <button [disabled]="!addEditForm.valid || addEditForm.pristine"
+                    mat-raised-button color="primary" type="submit">
+              Save
+            </button>
+
+            <button class="button" mat-raised-button color="warn" type="button" (click)="onCancel()">
+              Cancel
+            </button>
+          </div>
         </div>
+
       </form>
     </div>
   </div>
