@@ -58,7 +58,8 @@ This project was created from scratch (as you can see in the commit history), an
 ![alt text](/documentation/images/github/image6.png?raw=true)
 
 ## Exaple data
-The db.json file is located in project root directory and include example data to run the project.
+To run the project with example data it's necessary run "json-server --watch db.json" command in the same directory where the db.json file is. There are a db.json file located in project root directory that include example data. The server run in port 3000 as default.
+For more details visit https://github.com/typicode/json-server
 
 ## Credits
 By alfabetical order
