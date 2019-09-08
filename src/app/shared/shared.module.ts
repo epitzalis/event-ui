@@ -13,12 +13,15 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { RouterModule } from '@angular/router';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import 'hammerjs';
+import { ErrorDialogComponent } from './error-dialog/error-dialog.component';
+import { MatSnackBarModule } from '@angular/material';
 
 @NgModule({
-  declarations: [],
+  declarations: [ErrorDialogComponent],
   imports: [
     FormsModule,
     ReactiveFormsModule,
@@ -31,6 +34,9 @@ import 'hammerjs';
     MatInputModule,
     RouterModule,
     MatSlideToggleModule,
+    MatCheckboxModule,
+    MatDialogModule,
+    MatSnackBarModule,
   ],
   exports: [
     FormsModule,
@@ -45,8 +51,10 @@ import 'hammerjs';
     RouterModule,
     MatSlideToggleModule,
     MatCheckboxModule,
+    MatDialogModule,
+    MatSnackBarModule,
   ],
-  entryComponents: [],
+  entryComponents: [ErrorDialogComponent],
 })
 
 /**

@@ -8,7 +8,6 @@ import { Store } from '@ngrx/store';
 import { ProfileDetailComponent } from './profile-detail.component';
 import { UserService } from '../../core/user.service';
 import { User } from '../../models/user.model';
-import { ErrorService } from '../../core/error.service';
 
 describe('ProfileDetailComponent', () => {
   let component: ProfileDetailComponent;
@@ -41,7 +40,6 @@ describe('ProfileDetailComponent', () => {
       ],
       providers: [
         UserService,
-        ErrorService,
         {
           provide: Store,
           useValue: storeMock,

@@ -7,7 +7,6 @@ import { UserService } from './core/user.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { Store } from '@ngrx/store';
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
-import { ErrorService } from './core/error.service';
 
 describe('AppComponent', () => {
 
@@ -30,7 +29,6 @@ describe('AppComponent', () => {
       ],
       providers: [
         UserService,
-        ErrorService,
         {
           provide: Store,
           useValue: storeMock,

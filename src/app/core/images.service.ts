@@ -5,14 +5,13 @@ import {
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
-import { ErrorService } from './error.service';
+import { MatDialog } from '@angular/material/dialog';
 
 
 @Injectable()
 export class ImagesService {
   constructor(
     private readonly http: HttpClient,
-    private readonly errorService: ErrorService,
   ) {}
 
   /**
@@ -24,11 +23,7 @@ export class ImagesService {
     });
 
     return this.http
-      .get('https://api.unsplash.com/photos/random?orientation=landscape&query=event', { headers })
-      .pipe(
-        retry(3),
-        catchError(this.errorService.handleError)
-      );
+      .get('https://api.unsplash.com/photos/random?orientation=landscape&query=event', { headers });
   }
 
 }

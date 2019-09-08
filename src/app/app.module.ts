@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 
 // Modules
 import { CoreModule } from './core/core.module';
@@ -19,6 +19,9 @@ import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { GlobalErrorHandlerService } from './core/global-error-handler.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ServerErrorsInterceptor } from './core/server-error.interceptor';
 
 
 @NgModule({
@@ -38,7 +41,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([LayoutEffects])
   ],
-  providers: [],
+  providers: [
+    {
+      provide: ErrorHandler,
+      useClass: GlobalErrorHandlerService,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ServerErrorsInterceptor,
+      multi: true,
+    }
+  ],
   bootstrap: [AppComponent]
 })
 /**

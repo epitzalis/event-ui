@@ -4,7 +4,6 @@ import { HttpTestingController, HttpClientTestingModule } from '@angular/common/
 
 import { environment } from '../../environments/environment';
 import { EventService } from './event.service';
-import { ErrorService } from './error.service';
 import { Event } from '../models/event.model';
 
 describe('EventService', () => {
@@ -34,7 +33,6 @@ describe('EventService', () => {
       ],
       providers: [
         EventService,
-        ErrorService,
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]
     });

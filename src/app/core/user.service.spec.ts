@@ -4,7 +4,6 @@ import { HttpTestingController, HttpClientTestingModule } from '@angular/common/
 import { Store } from '@ngrx/store';
 
 import { UserService } from './user.service';
-import { ErrorService } from './error.service';
 import { User } from '../models/user.model';
 import { environment } from '../../environments/environment';
 
@@ -18,10 +17,6 @@ describe('UserService', () => {
    */
   const storeMock = {
     dispatch: () => true,
-  };
-
-  const ErrorServiceMock = {
-    handleError: jasmine.createSpy(),
   };
 
   const mockUser: User = {
@@ -43,10 +38,6 @@ describe('UserService', () => {
         {
           provide: Store,
           useValue: storeMock,
-        },
-        {
-          provide: ErrorService,
-          useValue: ErrorServiceMock,
         },
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]

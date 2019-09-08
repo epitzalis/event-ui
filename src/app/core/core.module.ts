@@ -9,7 +9,6 @@ import { EventService } from './event.service';
 import { UserService } from './user.service';
 import { ImagesService } from './images.service';
 import { ValidateFormService } from './validate-form.service';
-import { ErrorService } from './error.service';
 
 @NgModule({
   declarations: [],
@@ -18,7 +17,6 @@ import { ErrorService } from './error.service';
     HttpClientModule,
   ],
   providers: [
-    ErrorService,
     EventService,
     UserService,
     ImagesService,

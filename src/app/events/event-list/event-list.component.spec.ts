@@ -6,7 +6,6 @@ import { of } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { Event } from '../../models/event.model';
 import { User } from '../../models/user.model';
-import { ErrorService } from '../../core/error.service';
 import { EventService } from '../../core/event.service';
 import { UserService } from '../../core/user.service';
 
@@ -39,7 +38,6 @@ describe('EventListComponent', () => {
       providers: [
         EventService,
         UserService,
-        ErrorService,
         {
           provide: Store,
           useValue: storeMock,

@@ -11,7 +11,6 @@ import { ImagesService } from '../../core/images.service';
 import { EventService } from '../../core/event.service';
 import { UserService } from '../../core/user.service';
 import { User } from '../../models/user.model';
-import { ErrorService } from '../../core/error.service';
 
 describe('EventDetailComponent', () => {
   let component: EventDetailComponent;
@@ -55,7 +54,6 @@ describe('EventDetailComponent', () => {
       ],
       providers: [
         EventService,
-        ErrorService,
         {
           provide: UserService,
           useValue: mockUserService,
