@@ -4,6 +4,7 @@ import { User } from '../../models/user.model';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import * as login from '../../store/login/login.actions';
+import { USER, HOME } from '../../core/constants';
 
 @Component({
   selector: 'eui-profile-detail',
@@ -30,7 +31,7 @@ export class ProfileDetailComponent implements OnInit {
    * get user from local storage
    */
   getUser() {
-    this.user = JSON.parse(localStorage.getItem('user'));
+    this.user = JSON.parse(localStorage.getItem(USER));
   }
 
   /**
@@ -39,7 +40,7 @@ export class ProfileDetailComponent implements OnInit {
   logout() {
     this.userService.logout();
     this.store.dispatch(new login.Logged(false));
-    this.router.navigate(['/home']);
+    this.router.navigate(['/' + HOME]);
   }
 
 }

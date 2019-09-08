@@ -5,6 +5,7 @@ import { Event } from '../../models/event.model';
 import { UserService } from '../../core/user.service';
 import { User } from '../../models/user.model';
 import { ImagesService } from '../../core/images.service';
+import { ID, USER, EVENTS } from '../../core/constants';
 
 @Component({
   selector: 'eui-event-detail',
@@ -20,8 +21,6 @@ export class EventDetailComponent implements OnInit {
   id: string;
   imageUrl: string;
 
-  private readonly PARAM_ID = 'id';
-
   constructor(
     private readonly route: ActivatedRoute,
     private readonly router: Router,
@@ -31,7 +30,7 @@ export class EventDetailComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.id = this.route.snapshot.params[this.PARAM_ID];
+    this.id = this.route.snapshot.params[ID];
     this.getImage();
   }
 
@@ -61,7 +60,7 @@ export class EventDetailComponent implements OnInit {
    */
   isOwner(event: Event) {
     let isOwner = false;
-    const userString = localStorage.getItem('user');
+    const userString = localStorage.getItem(USER);
     if (userString) {
       const user: User = JSON.parse(userString);
       isOwner = event.addedBy === user.email;
@@ -77,7 +76,7 @@ export class EventDetailComponent implements OnInit {
   deleteEvent(event: Event) {
     if (this.userService.checkUser()) {
       this.eventService.deleteEvent(event.id).subscribe(() => {
-        this.router.navigate(['/events']);
+        this.router.navigate(['/' + EVENTS]);
       });
     }
   }

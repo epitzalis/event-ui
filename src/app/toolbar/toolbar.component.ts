@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { User } from '../models/user.model';
 import { SubscriptionLike } from 'rxjs';
 import { select, Store } from '@ngrx/store';
+import { USER } from '../core/constants';
 
 @Component({
   selector: 'eui-toolbar',
@@ -24,7 +25,7 @@ export class ToolbarComponent implements OnInit, OnDestroy {
       if (state) {
         this.isAuthenticated = state.logged;
         if ( this.isAuthenticated) {
-          this.user = JSON.parse(localStorage.getItem('user'));
+          this.user = JSON.parse(localStorage.getItem(USER));
         }
       }
     });

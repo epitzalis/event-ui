@@ -3,6 +3,7 @@ import { select, Store } from '@ngrx/store';
 import { SubscriptionLike } from 'rxjs';
 import { trigger, style, state, transition, animate } from '@angular/animations';
 import * as layout from '../../store/layout/layout.actions';
+import { USER } from '../../core/constants';
 
 /**
  * models
@@ -94,7 +95,7 @@ export class EventListComponent implements OnInit, OnDestroy {
    * Fired when the "my events" filter is toggle
    */
   myEventsChange() {
-    const user: User = JSON.parse(localStorage.getItem('user'));
+    const user: User = JSON.parse(localStorage.getItem(USER));
 
     if (this.slideMyEvents && user) {
       const userMail = user.email;

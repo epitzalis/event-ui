@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../../core/user.service';
 import { ValidateFormService } from '../../core/validate-form.service';
+import { EVENTS } from '../../core/constants';
 
 @Component({
   selector: 'eui-login-form',
@@ -42,7 +43,7 @@ export class LoginFormComponent implements OnInit {
   onSubmit() {
     this.userService.login(this.loginForm.value).subscribe((res: any) => {
       if (res.email) {
-        this.router.navigate(['/events']);
+        this.router.navigate(['/' + EVENTS]);
       } else {
         this.msgs = res;
       }

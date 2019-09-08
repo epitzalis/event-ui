@@ -5,6 +5,8 @@ import { Event } from '../../models/event.model';
 import { User } from '../../models/user.model';
 import { ValidateFormService } from '../../core/validate-form.service';
 import { EventService } from '../../core/event.service';
+import { ID, EVENTS } from '../../core/constants';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'eui-event-form',
@@ -19,18 +21,17 @@ export class EventFormComponent implements OnInit {
   addEditForm: FormGroup;
   event: Event;
 
-  private readonly PARAM_ID = 'id';
-
   constructor(
     public readonly validateFormService: ValidateFormService,
     private readonly fb: FormBuilder,
     private readonly eventService: EventService,
     private readonly router: Router,
     private readonly route: ActivatedRoute,
+    private readonly location: Location,
   ) {}
 
   ngOnInit() {
-    const id = this.route.snapshot.paramMap.get(this.PARAM_ID);
+    const id = this.route.snapshot.paramMap.get(ID);
 
     if (id) {
       this.eventService.getEvent(id).subscribe((event: Event) => {
@@ -77,13 +78,17 @@ export class EventFormComponent implements OnInit {
     if (this.event.id) {
       this.eventService.updateEvent(this.event).subscribe((event: Event) => {
         this.addEditForm.reset();
-        this.router.navigate(['/events']);
+        this.router.navigate(['/' + EVENTS]);
       });
     } else {
       this.eventService.addEvent(this.event).subscribe((event: Event) => {
         this.addEditForm.reset();
-        this.router.navigate(['/events']);
+        this.router.navigate(['/' + EVENTS]);
       });
     }
+  }
+
+  onCancel() {
+    this.location.back();
   }
 }

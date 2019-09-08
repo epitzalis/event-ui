@@ -1,21 +1,17 @@
 import { Injectable } from '@angular/core';
-import {
-  HttpClient,
-  HttpHeaders
-} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { catchError, retry, map } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { User } from '../models/user.model';
 import * as login from '../store/login/login.actions';
-import { ErrorService } from './error.service';
+import { USER, USERS } from './constants';
 
 @Injectable()
 export class UserService {
   constructor(
     private readonly http: HttpClient,
-    private readonly errorService: ErrorService,
     private readonly store: Store<any>,
   ) {}
 
@@ -32,14 +28,12 @@ export class UserService {
     });
 
     return this.http
-      .post(environment.apiURL + 'users/', user, { headers })
+      .post(`${environment.apiURL}${USERS}/`, user, { headers })
       .pipe(
-        retry(3),
         map(r => {
-          localStorage.setItem('user', JSON.stringify(r));
+          localStorage.setItem(USER, JSON.stringify(r));
           this.setUser();
         }),
-        catchError(this.errorService.handleError)
       );
   }
 
@@ -55,16 +49,14 @@ export class UserService {
       'Content-Type': 'application/json'
     });
 
-    return this.http.get(`${environment.apiURL}users?email=${user.email}`, { headers }).pipe(
-      retry(3),
+    return this.http.get(`${environment.apiURL}${USERS}?email=${user.email}`, { headers }).pipe(
       map(us => {
         if (us[0].email && us[0].password === user.password) {
-          localStorage.setItem('user', JSON.stringify(us[0]));
+          localStorage.setItem(USER, JSON.stringify(us[0]));
           this.setUser();
         }
         return us[0].password === user.password ? us[0] : 'Password not valid.';
       }),
-      catchError(this.errorService.handleError)
     );
   }
 
@@ -72,7 +64,7 @@ export class UserService {
    * Log out the user in the system
    */
   logout() {
-    localStorage.setItem('user', '');
+    localStorage.setItem(USER, '');
     return false;
   }
 
@@ -89,7 +81,7 @@ export class UserService {
    */
   private setUser() {
     this.isAuthenticated = true;
-    this.isAuthenticated = Boolean(localStorage.getItem('user'));
+    this.isAuthenticated = Boolean(localStorage.getItem(USER));
     this.isAuthenticated ? this.store.dispatch(new login.Logged(true)) : this.store.dispatch(new login.Logged(false));
   }
 

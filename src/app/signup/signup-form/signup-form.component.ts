@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { User } from '../../models/user.model';
 import { UserService } from '../../core/user.service';
 import { ValidateFormService } from '../../core/validate-form.service';
+import { EVENTS } from '../../core/constants';
 
 @Component({
   selector: 'eui-signup-form',
@@ -56,7 +57,7 @@ export class SignupFormComponent implements OnInit {
   onSubmit() {
     this.user = this.signupForm.value;
     this.userService.signup(this.user).subscribe(() => {
-      this.router.navigate(['/events']);
+      this.router.navigate(['/' + EVENTS]);
     });
   }
 
