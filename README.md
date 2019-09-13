@@ -33,7 +33,7 @@ This project was created from scratch (as you can see in the commit history), an
   - "Profile" option was renamed to user ID.
 * **Lazy Loading**: Added lazy loading to some modules for a better performance.
 ![alt text](/documentation/images/github/image2.png?raw=true)
-* **Unit Test**: Added 60 Unit Test to cover 100% of code.
+* **Unit Test**: Added 68 Unit Test to cover 100% of code.
 ![alt text](/documentation/images/github/image2.5.png?raw=true)
 ![alt text](/documentation/images/github/image2.6.png?raw=true)
 * **Zero vulnerabilities**: Project was audit with 'npm audit' and SonarQube. No vulnerabilities was detected in distribution environment (until today 25/07/19). There is a known vulnerability in compodoc that is not solvable at the moment, but it is acceptable because it is only used to generate documentation and therefore does not jeopardize the production environment.  

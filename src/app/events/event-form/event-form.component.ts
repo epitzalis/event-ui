@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Event } from '../../models/event.model';
@@ -6,7 +7,6 @@ import { User } from '../../models/user.model';
 import { ValidateFormService } from '../../core/validate-form.service';
 import { EventService } from '../../core/event.service';
 import { ID, EVENTS } from '../../core/constants';
-import {Location} from '@angular/common';
 
 @Component({
   selector: 'eui-event-form',
