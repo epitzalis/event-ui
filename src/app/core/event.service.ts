@@ -4,7 +4,6 @@ import {
   HttpHeaders
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { Event } from '../models/event.model';
 import { HTTP_HEADER_VALUE_APPLICATION_JSON, EVENTS } from './constants';
@@ -24,10 +23,7 @@ export class EventService {
       HTTP_HEADER_KEY_CONTENT_TYPE : HTTP_HEADER_VALUE_APPLICATION_JSON
     });
 
-    return this.http.get<Event[]>(`${environment.apiURL}${EVENTS}`, { headers }).pipe(
-      // retry(3),
-      // catchError(this.handleError)
-    );
+    return this.http.get<Event[]>(`${environment.apiURL}${EVENTS}`, { headers });
   }
 
   /**
@@ -40,10 +36,7 @@ export class EventService {
       HTTP_HEADER_KEY_CONTENT_TYPE : HTTP_HEADER_VALUE_APPLICATION_JSON
     });
 
-    return this.http.get<Event>(`${environment.apiURL}${EVENTS}/${id}`, { headers }).pipe(
-      // retry(3),
-      // catchError(this.handleError)
-    );
+    return this.http.get<Event>(`${environment.apiURL}${EVENTS}/${id}`, { headers });
   }
 
   /**
@@ -56,12 +49,7 @@ export class EventService {
       HTTP_HEADER_KEY_CONTENT_TYPE : HTTP_HEADER_VALUE_APPLICATION_JSON
     });
 
-    return this.http
-      .delete(`${environment.apiURL}${EVENTS}/${id}`, { headers })
-      .pipe(
-        // retry(3),
-        // catchError(this.handleError)
-      );
+    return this.http.delete(`${environment.apiURL}${EVENTS}/${id}`, { headers });
   }
 
   /**
@@ -75,11 +63,7 @@ export class EventService {
     });
 
     return this.http
-      .post<Event>(`${environment.apiURL}${EVENTS}/`, event, { headers })
-      .pipe(
-        // retry(3),
-        // catchError(this.handleError)
-      );
+      .post<Event>(`${environment.apiURL}${EVENTS}/`, event, { headers });
   }
 
   /**
@@ -93,11 +77,7 @@ export class EventService {
     });
 
     return this.http
-      .put<Event>(`${environment.apiURL}${EVENTS}/${event.id}`, event, { headers })
-      .pipe(
-        // retry(3),
-        // catchError(this.handleError)
-      );
+      .put<Event>(`${environment.apiURL}${EVENTS}/${event.id}`, event, { headers });
   }
 
   /**
@@ -110,10 +90,7 @@ export class EventService {
       HTTP_HEADER_KEY_CONTENT_TYPE : HTTP_HEADER_VALUE_APPLICATION_JSON
     });
 
-    return this.http.get(`${environment.apiURL}${EVENTS}?${filter}`, { headers }).pipe(
-      // retry(3),
-      // catchError(this.handleError)
-    );
+    return this.http.get(`${environment.apiURL}${EVENTS}?${filter}`, { headers });
   }
 
 }
