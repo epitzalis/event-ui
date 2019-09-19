@@ -6,10 +6,8 @@
   @include container();
   @include background('/assets/imgs/patt1.jpg', bottom, contain);
   background-size: cover;
-  display: flex;
   flex-flow: column;
   text-align: center;
-  display: inline-block;
 }
 
 .logo {
