@@ -31,6 +31,7 @@ This project was created from scratch (as you can see in the commit history), an
   - Only owner can see the "Delete" and "Edit" buttons for a event.
   - Include the "Logout" button in the profile detail.
   - "Profile" option was renamed to user ID.
+* **Centralized error management**: Using an interceptor, the errors are controlled in a service.
 * **Lazy Loading**: Added lazy loading to some modules for a better performance.
 ![alt text](/documentation/images/github/image2.png?raw=true)
 * **Unit Test**: Added 68 Unit Test to cover 100% of code.
